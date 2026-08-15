@@ -33,10 +33,24 @@ export default function PrismaXQuizApp() {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
+  // 🌟 প্রতি ক্যাটাগরি থেকে ঠিক ১টি করে মোট ৮টি ভিন্নধর্মী প্রশ্ন নেওয়া হচ্ছে
   const startQuiz = () => {
     if (!userName.trim()) return alert('Please enter your username!');
-    const shuffled = [...ALL_QUESTIONS].sort(() => 0.5 - Math.random()).slice(0, 8);
-    setQuizQuestions(shuffled);
+
+    const uniqueCategories = Array.from(new Set(ALL_QUESTIONS.map(q => q.category)));
+
+    const selectedFromEachCategory: Question[] = [];
+    uniqueCategories.forEach(category => {
+      const categoryQuestions = ALL_QUESTIONS.filter(q => q.category === category);
+      const randomIndex = Math.floor(Math.random() * categoryQuestions.length);
+      selectedFromEachCategory.push(categoryQuestions[randomIndex]);
+    });
+
+    const finalShuffledQuestions = [...selectedFromEachCategory]
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 8);
+
+    setQuizQuestions(finalShuffledQuestions);
     setCurrentIndex(0);
     setScore(0);
     setSelectedAnswers([]);
@@ -365,7 +379,7 @@ export default function PrismaXQuizApp() {
         </div>
       )}
 
-      {/* 3. 🌟 FIXED PHOTOCARD (NO BLUR GLITCHES & PERFECT SPACING) */}
+      {/* 3. FINAL PHOTOCARD SCREEN */}
       {gameState === 'result' && (
         <div className="flex flex-col items-center gap-6 z-10 w-full max-w-md">
           
@@ -398,7 +412,7 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* User Profile Avatar & Badge (Proper margins so badge never overlaps) */}
+            {/* User Profile Avatar & Badge */}
             <div className="mt-4 mb-5 flex flex-col items-center text-center relative z-10">
               <div className="relative mb-2.5">
                 <div className="p-1 rounded-full bg-[#30271e]/15 shadow-md">
@@ -424,14 +438,13 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* GLOSSY GLASS SCORE & RANK BOX (Pure CSS Gloss without buggy backdrop-filter) */}
+            {/* Glossy Score & Rank Box */}
             <div 
               className="relative z-10 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-white/70 space-y-2.5 overflow-hidden"
               style={{
                 background: 'linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.30) 100%)'
               }}
             >
-              {/* Gloss shine reflection line */}
               <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
 
               <div className="flex justify-between items-center text-xs relative z-10">

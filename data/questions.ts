@@ -1,5 +1,14 @@
 export interface Question {
   id: number;
+  category: 
+    | 'Core_Mission'
+    | 'VLA_Physical_AI'
+    | 'Consensus_Validation'
+    | 'Validator_Roles'
+    | 'Teleoperation_Data'
+    | 'Trivia_Community'
+    | 'Network_Architecture'
+    | 'AI_Safety_Standards';
   question: string;
   options: string[];
   correctAnswers: number[];
@@ -7,193 +16,1100 @@ export interface Question {
 }
 
 export const ALL_QUESTIONS: Question[] = [
-  // Section A — Validator Program & Membership
-  { id: 1, question: "What is the primary goal of PrismaX Verify Quality?", options: ["To sell robotics hardware", "To allow contributors to evaluate robotics training data", "To train human operators", "To create cryptocurrency wallets"], correctAnswers: [1] },
-  { id: 2, question: "What is the correct path to becoming a Validator?", options: ["Buy membership → become Validator immediately", "Review data → earn Prisma Points → reach Top 100 → become Validator", "Join Discord → complete teleoperation → become Validator", "Earn 35,000 points → automatically become Validator"], correctAnswers: [1] },
-  { id: 3, question: "Which memberships provide access to data validation?", options: ["Amplifier", "Innovator", "Explorer", "Validator"], correctAnswers: [0, 1], isMultiple: true },
-  { id: 4, question: "How much does an Amplifier membership cost?", options: ["$49", "$99", "$199", "$399"], correctAnswers: [1] },
-  { id: 5, question: "How much does an Innovator membership cost?", options: ["$99", "$199", "$299", "$399"], correctAnswers: [3] },
-  { id: 6, question: "Which statements about Amplifier are correct?", options: ["It costs $99", "It allows up to 10 reviews per month", "It allows up to 30 priority reviews per month", "It allows up to 10,000 Prisma Points per month"], correctAnswers: [0, 1, 3], isMultiple: true },
-  { id: 7, question: "Which statements about Innovator are correct?", options: ["It costs $399", "It allows up to 30 priority reviews per month", "It allows up to 30,000 Prisma Points per month", "It allows unlimited reviews from the beginning"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 8, question: "What does 'one review' mean in the PrismaX validation system?", options: ["Reviewing one task", "Reviewing one episode", "Completing all episodes in one episode collection", "Reviewing one robot"], correctAnswers: [2] },
-  { id: 9, question: "A collection contains 10 episodes. How many episodes must be completed for it to count as one review?", options: ["1", "5", "8", "10"], correctAnswers: [3] },
-  { id: 10, question: "What is the maximum stated monthly Prisma Point allowance for an Amplifier?", options: ["5,000", "10,000", "20,000", "30,000"], correctAnswers: [1] },
+  // ==========================================
+  // Category 1: Core_Mission (Questions 1 - 19)
+  // ==========================================
+  {
+    id: 1,
+    category: 'Core_Mission',
+    question: 'What is the primary mission of the PrismaX Network?',
+    options: ['Decentralized data consensus for Physical AI & Robotics', 'Decentralized text chat hosting', 'Cryptocurrency cloud mining', 'Social media ad generation'],
+    correctAnswers: [0]
+  },
+  {
+    id: 2,
+    category: 'Core_Mission',
+    question: 'Which AI domain does PrismaX specifically advance?',
+    options: ['Physical / Embodied AI', 'Basic spreadsheet automation', 'Legacy SEO tools', 'Graphic design filters'],
+    correctAnswers: [0]
+  },
+  {
+    id: 3,
+    category: 'Core_Mission',
+    question: 'Why is standard web-scraped data insufficient for training humanoid robotics?',
+    options: ['It lacks spatial dimensions, physical force, and real-time physics data', 'Web images have lower resolution', 'Text is too fast for robots to read', 'There are no videos online'],
+    correctAnswers: [0]
+  },
+  {
+    id: 4,
+    category: 'Core_Mission',
+    question: 'What is "Embodied AI" in the PrismaX framework?',
+    options: ['AI systems with a physical body that interact with the real world', 'Software without sensors', 'Text-only chatbots', 'Stock market trading bots'],
+    correctAnswers: [0]
+  },
+  {
+    id: 5,
+    category: 'Core_Mission',
+    question: 'What problem does PrismaX solve in the Physical AI industry?',
+    options: ['Data scarcity, unverified robotic trajectories, and centralized silos', 'High smartphone screen prices', 'Server cooling fan noise', 'Lack of office desks'],
+    correctAnswers: [0]
+  },
+  {
+    id: 6,
+    category: 'Core_Mission',
+    question: 'Which of the following are core pillars of the PrismaX vision? (Multiple answers apply)',
+    options: ['Decentralized Data Provenance', 'Physical AI Consensus', 'Community Verification Incentives', 'Centralized Database Lock-in'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 7,
+    category: 'Core_Mission',
+    question: 'How does PrismaX democratize robotic intelligence development?',
+    options: ['By providing an open, verifiable global data and consensus layer', 'By selling exclusive hardware licenses', 'By shutting down open-source models', 'By charging per robot limb'],
+    correctAnswers: [0]
+  },
+  {
+    id: 8,
+    category: 'Core_Mission',
+    question: 'What makes Physical AI data unique compared to traditional AI data?',
+    options: ['It encodes physical dynamics, torque, depth, and kinematic feedback', 'It only consists of 2D pixels', 'It contains only plain audio clips', 'It does not require timestamps'],
+    correctAnswers: [0]
+  },
+  {
+    id: 9,
+    category: 'Core_Mission',
+    question: 'PrismaX bridges the gap between which two emerging technologies?',
+    options: ['Robotics (Physical AI) and Decentralized Web3 Networks', 'Printing Presses and Steam Engines', 'Analog Radios and Cassettes', 'Telegraphs and Morse Code'],
+    correctAnswers: [0]
+  },
+  {
+    id: 10,
+    category: 'Core_Mission',
+    question: 'What does PrismaX aim to prevent in the future of general-purpose robotics?',
+    options: ['Monopolistic control of robotic training data by centralized mega-corps', 'Cheaper robot manufacturing', 'Faster learning speeds', 'Global community collaboration'],
+    correctAnswers: [0]
+  },
+  {
+    id: 11,
+    category: 'Core_Mission',
+    question: 'What constitutes the "Consensus Layer" in PrismaX?',
+    options: ['The decentralized validation process ensuring high dataset quality', 'A private database cluster', 'An email verification server', 'A manual spreadsheet'],
+    correctAnswers: [0]
+  },
+  {
+    id: 12,
+    category: 'Core_Mission',
+    question: 'Which hardware devices benefit directly from PrismaX consensus data?',
+    options: ['Humanoid robots, robotic arms, and autonomous systems', 'Basic calculators', 'Standard CRT televisions', 'Digital watches'],
+    correctAnswers: [0]
+  },
+  {
+    id: 13,
+    category: 'Core_Mission',
+    question: 'What is the philosophy behind "Test Today, Validate Tomorrow"?',
+    options: ['Continuous skill sharpening and proactive verification of AI datasets', 'Postponing work indefinitely', 'Skipping validation steps', 'Only testing finished robots in 2050'],
+    correctAnswers: [0]
+  },
+  {
+    id: 14,
+    category: 'Core_Mission',
+    question: 'Why is decentralized coordination ideal for robotic data collection?',
+    options: ['It scales globally across diverse real-world environments', 'It limits data to one laboratory', 'It reduces the number of contributors', 'It requires no verification'],
+    correctAnswers: [0]
+  },
+  {
+    id: 15,
+    category: 'Core_Mission',
+    question: 'In PrismaX, what is a "Dataset Quality Standard"?',
+    options: ['A verifiable threshold of trajectory precision and sensory alignment', 'Arbitrary file size minimums', 'The file extension name', 'The time of day it was uploaded'],
+    correctAnswers: [0]
+  },
+  {
+    id: 16,
+    category: 'Core_Mission',
+    question: 'How do robotic developers benefit from PrismaX verified data?',
+    options: ['Faster sim-to-real transfer and reliable robot policy training', 'Automatic free hardware', 'Slower training cycles', 'Reduced model safety'],
+    correctAnswers: [0]
+  },
+  {
+    id: 17,
+    category: 'Core_Mission',
+    question: 'Which entities participate in the PrismaX ecosystem? (Multiple answers apply)',
+    options: ['Data Contributors', 'Consensus Validators', 'Robotics Developers', 'Legacy Fax Operators'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 18,
+    category: 'Core_Mission',
+    question: 'What is the end goal of physical AI consensus?',
+    options: ['Flawless real-world robotic execution with zero catastrophic errors', 'Generating fictional stories', 'Mining bitcoin blocks', 'Designing vector wallpapers'],
+    correctAnswers: [0]
+  },
+  {
+    id: 19,
+    category: 'Core_Mission',
+    question: 'PrismaX is positioned as the foundational data layer for:',
+    options: ['Next-generation Autonomous Robots & Embodied Intelligence', 'Basic calculator firmware', 'Standard blogging engines', 'Single-player mobile games'],
+    correctAnswers: [0]
+  },
 
-  // Section B — Reviews, Points & Leaderboard
-  { id: 11, question: "How many Prisma Points are awarded for one accurate review task?", options: ["50", "75", "100", "150"], correctAnswers: [2] },
-  { id: 12, question: "What condition must a validator's quality score satisfy to earn points?", options: ["It must exactly equal consensus", "It must be within ±5% of consensus", "It must be within ±15% of consensus", "It must be within ±25% of consensus"], correctAnswers: [2] },
-  { id: 13, question: "Which additional condition is required besides the quality score?", options: ["The reviewer must finish first", "Pass/fail selections must match consensus", "The reviewer must have Innovator membership", "The reviewer must complete teleoperation"], correctAnswers: [1] },
-  { id: 14, question: "Which factors determine whether a review task earns points?", options: ["Quality score being within ±15% of consensus", "Pass/fail selection matching consensus", "Reviewer having the highest score", "Reviewer completing teleoperation that day"], correctAnswers: [0, 1], isMultiple: true },
-  { id: 15, question: "Approximately how many review tasks does each episode contain?", options: ["2", "5", "10", "20"], correctAnswers: [2] },
-  { id: 16, question: "If an episode contains approximately 10 review tasks, how many points could be earned if all 10 tasks are accurate?", options: ["100", "500", "1,000", "10,000"], correctAnswers: [2] },
-  { id: 17, question: "How are contributors ranked at the end of each month?", options: ["By membership price", "By Discord activity", "By total Prisma Points earned that month", "By number of robots owned"], correctAnswers: [2] },
-  { id: 18, question: "Where should a member go to review robotics training data?", options: ["Account → Settings", "VLA Foundry → Verify Quality → Review & Earn", "Discord → Validation Chat", "Robot Control Center → Leaderboard"], correctAnswers: [1] },
-  { id: 19, question: "Which activities can provide additional ways to earn Prisma Points?", options: ["Robot Control Center / teleoperation", "Daily check-ins", "Ecosystem challenges", "Buying multiple memberships"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 20, question: "What happens if a reviewer's quality score is outside the ±15% consensus range?", options: ["The reviewer automatically receives 50 points", "The reviewer receives 100 points anyway", "The task does not satisfy the stated accuracy condition", "The reviewer becomes a Validator"], correctAnswers: [2] },
+  // ==========================================
+  // Category 2: VLA_Physical_AI (Questions 20 - 38)
+  // ==========================================
+  {
+    id: 20,
+    category: 'VLA_Physical_AI',
+    question: 'What does "VLA" stand for in modern robotics AI?',
+    options: ['Vision-Language-Action', 'Variable-Logic-Algorithm', 'Virtual-Learning-Automaton', 'Vector-Linear-Array'],
+    correctAnswers: [0]
+  },
+  {
+    id: 21,
+    category: 'VLA_Physical_AI',
+    question: 'How does a VLA model process instructions into physical movements?',
+    options: ['It takes visual inputs + natural language commands and outputs action tokens', 'It translates English into Spanish', 'It generates 3D printable CAD files', 'It compiles C++ code only'],
+    correctAnswers: [0]
+  },
+  {
+    id: 22,
+    category: 'VLA_Physical_AI',
+    question: 'Which modalities are synchronized in a VLA trajectory? (Multiple answers apply)',
+    options: ['RGB / Depth Camera Streams', 'Natural Language Prompts', 'End-Effector Pose & Gripper States', 'Radio FM Frequencies'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 23,
+    category: 'VLA_Physical_AI',
+    question: 'What is an "Action Token" in a robotic foundation model?',
+    options: ['A discretized representation of motor velocities or joint angles', 'A digital cryptocurrency reward', 'An API authentication key', 'A physical robot sticker'],
+    correctAnswers: [0]
+  },
+  {
+    id: 24,
+    category: 'VLA_Physical_AI',
+    question: 'Why are spatial coordinate frames critical in VLA training?',
+    options: ['To ensure the robot grasps objects at accurate real-world 3D positions', 'To make video playback smoother', 'To increase color saturation', 'To render 2D fonts'],
+    correctAnswers: [0]
+  },
+  {
+    id: 25,
+    category: 'VLA_Physical_AI',
+    question: 'What is "Imitation Learning" in Physical AI?',
+    options: ['Training models on expert human teleoperation demonstrations', 'Robots copying other robots randomly', 'Copying text from Wikipedia', 'Mimicking animal sounds'],
+    correctAnswers: [0]
+  },
+  {
+    id: 26,
+    category: 'VLA_Physical_AI',
+    question: 'What constitutes an "End-Effector" on a robotic manipulator?',
+    options: ['The gripper, hand, or tool at the end of the robotic arm', 'The power supply socket', 'The base wheels', 'The network antenna'],
+    correctAnswers: [0]
+  },
+  {
+    id: 27,
+    category: 'VLA_Physical_AI',
+    question: 'Which of the following causes "Covariate Shift" during robotic deployment?',
+    options: ['Small execution errors compounding over time leading to unseen states', 'Changing the robot background color', 'Switching the web browser tab', 'Restarting the computer monitor'],
+    correctAnswers: [0]
+  },
+  {
+    id: 28,
+    category: 'VLA_Physical_AI',
+    question: 'Why is Multi-Camera synchronization mandatory in high-tier VLA datasets?',
+    options: ['To prevent occlusion and provide accurate 3D spatial depth', 'To capture artistic angles', 'To increase upload file count', 'To test different video codecs'],
+    correctAnswers: [0]
+  },
+  {
+    id: 29,
+    category: 'VLA_Physical_AI',
+    question: 'What does 6-DoF (Degrees of Freedom) represent in robotic manipulation?',
+    options: ['Position (X, Y, Z) and Orientation (Roll, Pitch, Yaw)', 'Six different motor colors', 'Six processor cores', 'Six camera lenses'],
+    correctAnswers: [0]
+  },
+  {
+    id: 30,
+    category: 'VLA_Physical_AI',
+    question: 'How do VLA models handle task generalization?',
+    options: ['By understanding semantic language prompts and applying learned physical skills to new objects', 'By memorizing one single trajectory forever', 'By requiring hardcoded coordinates every time', 'By restarting after every action'],
+    correctAnswers: [0]
+  },
+  {
+    id: 31,
+    category: 'VLA_Physical_AI',
+    question: 'What is "Proprioception" in robotics?',
+    options: ['The robot’s internal sensing of its own joint positions and force', 'The wireless signal strength', 'The camera’s auto-focus speed', 'The ambient room temperature'],
+    correctAnswers: [0]
+  },
+  {
+    id: 32,
+    category: 'VLA_Physical_AI',
+    question: 'What role does "Tactile Feedback" play in advanced Physical AI models?',
+    options: ['Informing the model about contact force and slip detection', 'Playing acoustic music', 'Lighting up indicator LEDs', 'Calculating crypto gas fees'],
+    correctAnswers: [0]
+  },
+  {
+    id: 33,
+    category: 'VLA_Physical_AI',
+    question: 'Which component represents the "Vision" aspect in VLA pipelines? (Multiple answers apply)',
+    options: ['RGB camera frames', 'Point clouds from depth sensors', 'Semantic segmentation masks', 'Audio waveform logs'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 34,
+    category: 'VLA_Physical_AI',
+    question: 'What is "Diffusion Policy" in robot action prediction?',
+    options: ['Generating smooth, continuous motor trajectories using diffusion models', 'Blurring camera images', 'Scattering light in the lab', 'Spreading network traffic across servers'],
+    correctAnswers: [0]
+  },
+  {
+    id: 35,
+    category: 'VLA_Physical_AI',
+    question: 'Why is high-frequency action prediction (e.g., 20Hz - 50Hz) needed for robots?',
+    options: ['To allow real-time reactive corrections during physical manipulation', 'To show smoother UI animations', 'To burn more electricity', 'To test CPU cooling'],
+    correctAnswers: [0]
+  },
+  {
+    id: 36,
+    category: 'VLA_Physical_AI',
+    question: 'What is "Sim-to-Real" transfer?',
+    options: ['Deploying policies trained in physics simulators onto physical robots', 'Converting real robots into 3D games', 'Exporting simulation videos to YouTube', 'Replacing robot batteries'],
+    correctAnswers: [0]
+  },
+  {
+    id: 37,
+    category: 'VLA_Physical_AI',
+    question: 'What is the main challenge of the "Reality Gap" in Sim-to-Real?',
+    options: ['Simulators cannot perfectly model complex friction, deformability, and sensor noise', 'Computer screens are 2D', 'Simulator software is too expensive', 'Virtual robots are too small'],
+    correctAnswers: [0]
+  },
+  {
+    id: 38,
+    category: 'VLA_Physical_AI',
+    question: 'How does PrismaX validate that a VLA dataset is physically plausible?',
+    options: ['Through multi-validator kinematic checks and trajectory smoothness verification', 'By inspecting the file name extension', 'By checking the uploader’s follower count', 'By skipping numerical verification'],
+    correctAnswers: [0]
+  },
 
-  // Section C — Validators & Monthly Rotation
-  { id: 21, question: "How many Validator positions are available?", options: ["25", "50", "75", "100"], correctAnswers: [3] },
-  { id: 22, question: "Who becomes a Validator through the monthly ranking?", options: ["Top 10 contributors", "Top 50 contributors", "Top 75 contributors", "Top 100 contributors"], correctAnswers: [3] },
-  { id: 23, question: "Which benefits do Validators receive?", options: ["Unlimited review access", "Trusted Validator status", "Guaranteed monthly income", "Unlimited membership upgrades"], correctAnswers: [0, 1], isMultiple: true },
-  { id: 24, question: "At the end of each month, what happens to the bottom 25 Validators?", options: ["They receive a warning only", "They lose Validator status", "They receive additional points", "They are automatically promoted"], correctAnswers: [1] },
-  { id: 25, question: "How many top non-Validator members are promoted to fill the open Validator spots?", options: ["10", "20", "25", "50"], correctAnswers: [2] },
-  { id: 26, question: "Newly promoted Validators receive what?", options: ["One-week grace period", "One-month grace period", "Three-month grace period", "Permanent protection"], correctAnswers: [1] },
-  { id: 27, question: "Why does PrismaX use monthly Validator rotation?", options: ["To keep the Validator group performance-based", "To eliminate all existing Validators", "To increase membership prices", "To prevent new members from participating"], correctAnswers: [0] },
-  { id: 28, question: "A Validator finishes the month ranked near the bottom. What can happen?", options: ["They are guaranteed permanent status", "They may lose Validator status during rotation", "They automatically become Innovators", "They receive unlimited points"], correctAnswers: [1] },
-  { id: 29, question: "A newly promoted Validator has a one-month grace period. What does this primarily provide?", options: ["Protection while adapting to the Validator role", "Free membership for life", "Guaranteed Top 10 ranking", "Double points forever"], correctAnswers: [0] },
-  { id: 30, question: "Which statement is correct about the Validator system?", options: ["Validator status is permanently granted once earned", "There are always 100 Validator spots", "Only Innovators can ever become Validators", "Validators cannot lose their status"], correctAnswers: [1] },
+  // ==========================================
+  // Category 3: Consensus_Validation (Questions 39 - 57)
+  // ==========================================
+  {
+    id: 39,
+    category: 'Consensus_Validation',
+    question: 'What is the primary function of a PrismaX Validator?',
+    options: ['Reviewing, verifying, and scoring Physical AI robotic data', 'Writing robot user manuals', 'Selling hardware parts', 'Managing social media groups'],
+    correctAnswers: [0]
+  },
+  {
+    id: 40,
+    category: 'Consensus_Validation',
+    question: 'How is consensus reached on a submitted dataset in PrismaX?',
+    options: ['Multiple independent validators evaluate and converge on a quality threshold', 'A single administrator clicks approve', 'The first person to open the file decides', 'Random automated dice rolls'],
+    correctAnswers: [0]
+  },
+  {
+    id: 41,
+    category: 'Consensus_Validation',
+    question: 'What happens if a validator submits random or malicious ratings?',
+    options: ['Their accuracy score declines and consensus weight is penalized', 'They are promoted immediately', 'They receive double rewards', 'Their reviews are automatically marked as verified'],
+    correctAnswers: [0]
+  },
+  {
+    id: 42,
+    category: 'Consensus_Validation',
+    question: 'Which factors determine dataset acceptance in PrismaX? (Multiple answers apply)',
+    options: ['Kinematic trajectory smoothness', 'Sensor-language temporal alignment', 'Physical safety compliance', 'The font size used in documentation'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 43,
+    category: 'Consensus_Validation',
+    question: 'What is "Temporal Misalignment" in multi-modal validation?',
+    options: ['When camera frames and robot arm joint states are out of sync in time', 'When the validator lives in a different time zone', 'When the computer clock is slow', 'When the quiz is taken at night'],
+    correctAnswers: [0]
+  },
+  {
+    id: 44,
+    category: 'Consensus_Validation',
+    question: 'What is a "Sybil Attack" in a decentralized validation network?',
+    options: ['An attacker creating multiple fake accounts to manipulate consensus', 'A physical robot hardware failure', 'A network power outage', 'A broken camera cable'],
+    correctAnswers: [0]
+  },
+  {
+    id: 45,
+    category: 'Consensus_Validation',
+    question: 'How does PrismaX mitigate Sybil attacks during validation?',
+    options: ['Stake-weighted consensus, reputation scoring, and cryptographic identity', 'Allowing unlimited anonymous accounts to vote', 'Disabling all password requirements', 'Removing validator logs'],
+    correctAnswers: [0]
+  },
+  {
+    id: 46,
+    category: 'Consensus_Validation',
+    question: 'What is the "Consensus Threshold" in PrismaX?',
+    options: ['The minimum percentage of agreement required among validators to accept data', 'The maximum file size per upload', 'The speed of the validator’s internet', 'The number of hours a node runs'],
+    correctAnswers: [0]
+  },
+  {
+    id: 47,
+    category: 'Consensus_Validation',
+    question: 'Why is multi-validator consensus superior to single-auditor verification?',
+    options: ['It eliminates single points of failure, human bias, and corruption', 'It makes the review process infinitely slow', 'It prevents anyone from seeing the data', 'It requires no computers'],
+    correctAnswers: [0]
+  },
+  {
+    id: 48,
+    category: 'Consensus_Validation',
+    question: 'What is a "Gold Standard" validation benchmark?',
+    options: ['A verified dataset with known ground truth used to test validator accuracy', 'A physical gold coin awarded to winners', 'An expensive software subscription', 'A server built of gold'],
+    correctAnswers: [0]
+  },
+  {
+    id: 49,
+    category: 'Consensus_Validation',
+    question: 'What metric represents validator performance in PrismaX?',
+    options: ['Validation Accuracy (%) and Consensus Reliability Score', 'Number of open browser tabs', 'Desktop monitor resolution', 'Length of account username'],
+    correctAnswers: [0]
+  },
+  {
+    id: 50,
+    category: 'Consensus_Validation',
+    question: 'Which step comes FIRST in the data validation lifecycle?',
+    options: ['Automated kinematic parsing & sanity checking', 'Final on-chain settlement', 'Community photocard generation', 'Archiving old logs'],
+    correctAnswers: [0]
+  },
+  {
+    id: 51,
+    category: 'Consensus_Validation',
+    question: 'What happens when a dataset has borderline consensus scores?',
+    options: ['It is routed to senior validators or specialist reviewers for escalation', 'It is permanently deleted instantly', 'It is accepted without checks', 'It is posted to social media'],
+    correctAnswers: [0]
+  },
+  {
+    id: 52,
+    category: 'Consensus_Validation',
+    question: 'How are validator weights adjusted over time?',
+    options: ['Dynamically based on historical consensus precision and review fidelity', 'Randomly every 24 hours', 'Alphabetically by username', 'Based on geographical location only'],
+    correctAnswers: [0]
+  },
+  {
+    id: 53,
+    category: 'Consensus_Validation',
+    question: 'What is "Kinematic Anomaly Detection"?',
+    options: ['Identifying impossible physical acceleration or joint teleportation in data', 'Detecting software viruses in images', 'Measuring web page load speed', 'Checking internet router ping'],
+    correctAnswers: [0]
+  },
+  {
+    id: 54,
+    category: 'Consensus_Validation',
+    question: 'Why must robotic task completion be verified by consensus?',
+    options: ['To ensure the training policy only learns successful, goal-reaching actions', 'To make dataset files smaller', 'To reduce training color contrast', 'To change audio volume'],
+    correctAnswers: [0]
+  },
+  {
+    id: 55,
+    category: 'Consensus_Validation',
+    question: 'Which of the following constitute validation failure reasons? (Multiple answers apply)',
+    options: ['Excessive sensor occlusion hiding key manipulation steps', 'Unrealistic physical jerks and force spikes', 'Missing language task annotation', 'Using dark mode on the website'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 56,
+    category: 'Consensus_Validation',
+    question: 'What is the role of cryptographic signatures in validation batches?',
+    options: ['Proving that a specific validator evaluated and committed to their score', 'Making image files transparent', 'Compressing audio recordings', 'Speeding up monitor refresh rates'],
+    correctAnswers: [0]
+  },
+  {
+    id: 57,
+    category: 'Consensus_Validation',
+    question: 'What guarantees that validator decisions remain tamper-evident?',
+    options: ['Immutable decentralized ledger logs and cryptographic hashes', 'Encrypted local text files on desktop', 'Paper certificates in the office', 'Unrecorded voice calls'],
+    correctAnswers: [0]
+  },
 
-  // Section D — PrismaX Data Standards
-  { id: 31, question: "According to the standards, what is one major limitation of current Physical AI development?", options: ["Lack of programming languages", "Limited or low-quality training data", "Lack of internet access", "Excessive robot hardware"], correctAnswers: [1] },
-  { id: 32, question: "Why does PrismaX describe current robotics datasets as a 'melting pot'?", options: ["They contain many inconsistent types and qualities of data", "They contain only humanoid data", "They contain only synthetic data", "They contain no videos"], correctAnswers: [0] },
-  { id: 33, question: "What problem exists with task selection in many robotics datasets?", options: ["Tasks are too expensive", "Tasks are repetitive", "Tasks are always impossible", "Tasks contain no instructions"], correctAnswers: [1] },
-  { id: 34, question: "Which types of data are sometimes all marketed as 'robotics data'?", options: ["Videos", "Motion capture", "Teleoperation", "Financial records"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 35, question: "What does PrismaX define as robotics data?", options: ["Any video containing a robot", "Egocentric task video from a bimanual embodiment with sufficient sensor data to reconstruct physical state", "Only synthetic robot simulations", "Only motion-capture datasets"], correctAnswers: [1] },
-  { id: 36, question: "What does 'egocentric' mean in PrismaX's definition?", options: ["Recorded from room-scale cameras", "Recorded from cameras mounted on the embodiment", "Recorded from satellites", "Recorded from drones"], correctAnswers: [1] },
-  { id: 37, question: "Which can be considered an embodiment under the stated definition?", options: ["Robot", "UMI-style gripper", "Human", "Room camera"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 38, question: "What type of embodiment is emphasized in the robotics data definition?", options: ["Bimanual embodiment", "Single-wheel embodiment", "Static camera", "Autonomous vehicle only"], correctAnswers: [0] },
-  { id: 39, question: "What does the sensor data need to allow?", options: ["Reconstruction of the physical state of the embodiment", "Prediction of membership price", "Calculation of Ethereum gas fees", "Detection of Discord activity"], correctAnswers: [0] },
-  { id: 40, question: "What is the minimum overhead-camera requirement?", options: ["It must show only the robot's head", "It must have a full view of all relevant workspace areas", "It only needs to record during successful actions", "It may look away whenever the robot moves"], correctAnswers: [1] },
+  // ==========================================
+  // Category 4: Validator_Roles (Questions 58 - 76)
+  // ==========================================
+  {
+    id: 58,
+    category: 'Validator_Roles',
+    question: 'What is the highest tier assigned to perfect 8/8 quiz performers?',
+    options: ['FOUNDING VALIDATOR', 'AI EXPLORER', 'GUEST VISITOR', 'NOVICE AUDITOR'],
+    correctAnswers: [0]
+  },
+  {
+    id: 59,
+    category: 'Validator_Roles',
+    question: 'What badge is given to the Founding Validator tier in the Gateway?',
+    options: ['THE FIRST 100', 'AMPLIFIER', 'INNOVATOR TIER', 'VLA SPECIALIST'],
+    correctAnswers: [0]
+  },
+  {
+    id: 60,
+    category: 'Validator_Roles',
+    question: 'Which rank is awarded for achieving a 6/8 or 7/8 score?',
+    options: ['TRUSTED VALIDATOR', 'AI EXPLORER', 'CHIEF ARCHITECT', 'SYSTEM OBSERVER'],
+    correctAnswers: [0]
+  },
+  {
+    id: 61,
+    category: 'Validator_Roles',
+    question: 'What badge corresponds to the "Trusted Validator" tier?',
+    options: ['VLA SPECIALIST', 'THE FIRST 100', 'INNOVATOR TIER', 'AMPLIFIER'],
+    correctAnswers: [0]
+  },
+  {
+    id: 62,
+    category: 'Validator_Roles',
+    question: 'What rank is assigned for scoring 4/8 or 5/8 in the knowledge test?',
+    options: ['CORE CONTRIBUTOR', 'FOUNDING VALIDATOR', 'TRUSTED VALIDATOR', 'AMPLIFIER'],
+    correctAnswers: [0]
+  },
+  {
+    id: 63,
+    category: 'Validator_Roles',
+    question: 'What badge is paired with the "Core Contributor" rank?',
+    options: ['INNOVATOR TIER', 'VLA SPECIALIST', 'THE FIRST 100', 'AMPLIFIER'],
+    correctAnswers: [0]
+  },
+  {
+    id: 64,
+    category: 'Validator_Roles',
+    question: 'What role is assigned to participants with an accuracy under 4/8?',
+    options: ['AI EXPLORER', 'FOUNDING VALIDATOR', 'CORE CONTRIBUTOR', 'TRUSTED VALIDATOR'],
+    correctAnswers: [0]
+  },
+  {
+    id: 65,
+    category: 'Validator_Roles',
+    question: 'What badge represents the "AI Explorer" rank?',
+    options: ['AMPLIFIER', 'THE FIRST 100', 'VLA SPECIALIST', 'INNOVATOR TIER'],
+    correctAnswers: [0]
+  },
+  {
+    id: 66,
+    category: 'Validator_Roles',
+    question: 'What does the Founding Validator rank signify?',
+    options: ['Flawless Physical AI Consensus Accuracy & early leadership', 'Basic profile registration', 'Casual forum browsing', 'Zero validation activity'],
+    correctAnswers: [0]
+  },
+  {
+    id: 67,
+    category: 'Validator_Roles',
+    question: 'How can an AI Explorer advance to higher validator tiers?',
+    options: ['By studying Physical AI standards and improving quiz and validation accuracy', 'By changing profile pictures', 'By waiting passively', 'By deleting previous accounts'],
+    correctAnswers: [0]
+  },
+  {
+    id: 68,
+    category: 'Validator_Roles',
+    question: 'What is the purpose of the downloadable Validator Pass?',
+    options: ['To provide a verifiable credential and shareable badge of consensus skill', 'To serve as a store receipt', 'To replace a passport', 'To buy computer monitors'],
+    correctAnswers: [0]
+  },
+  {
+    id: 69,
+    category: 'Validator_Roles',
+    question: 'Which attributes are displayed on the PrismaX Validator Pass? (Multiple answers apply)',
+    options: ['Participant Avatar & Username', 'Assigned Rank & Badge', 'Validation Accuracy Score & Percentage', 'Personal Bank Details'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 70,
+    category: 'Validator_Roles',
+    question: 'What evaluation note is shown for Founding Validators on their pass?',
+    options: ['"Flawless Physical AI Consensus Accuracy ⚡"', '"Consensus Quality Master 🔥"', '"Strong grasp of Physical AI Standards"', '"Ecosystem Learner & Trainee"'],
+    correctAnswers: [0]
+  },
+  {
+    id: 71,
+    category: 'Validator_Roles',
+    question: 'What evaluation note is displayed for Trusted Validators?',
+    options: ['"Consensus Quality Master 🔥"', '"Flawless Physical AI Consensus Accuracy ⚡"', '"Strong grasp of Physical AI Standards"', '"Ecosystem Learner & Trainee"'],
+    correctAnswers: [0]
+  },
+  {
+    id: 72,
+    category: 'Validator_Roles',
+    question: 'What evaluation note is displayed for Core Contributors?',
+    options: ['"Strong grasp of Physical AI Standards"', '"Consensus Quality Master 🔥"', '"Flawless Physical AI Consensus Accuracy ⚡"', '"Ecosystem Learner & Trainee"'],
+    correctAnswers: [0]
+  },
+  {
+    id: 73,
+    category: 'Validator_Roles',
+    question: 'What evaluation note is displayed for AI Explorers?',
+    options: ['"Ecosystem Learner & Trainee"', '"Consensus Quality Master 🔥"', '"Strong grasp of Physical AI Standards"', '"Flawless Physical AI Consensus Accuracy ⚡"'],
+    correctAnswers: [0]
+  },
+  {
+    id: 74,
+    category: 'Validator_Roles',
+    question: 'Why do community members share their Validator Pass on social media?',
+    options: ['To prove their expertise, inspire peers, and expand ecosystem reach', 'To print paper posters', 'To bypass website firewalls', 'To reset their password'],
+    correctAnswers: [0]
+  },
+  {
+    id: 75,
+    category: 'Validator_Roles',
+    question: 'What security badge icon is displayed at the top of every generated Pass?',
+    options: ['VERIFIED shield check', 'LOCKED padlock', 'PENDING hourglass', 'CROSS warning'],
+    correctAnswers: [0]
+  },
+  {
+    id: 76,
+    category: 'Validator_Roles',
+    question: 'How are tiered validator roles utilized inside the broader PrismaX network?',
+    options: ['Higher tiers receive higher consensus review weight and specialist tasks', 'All tiers are treated identically with zero distinction', 'Higher tiers are restricted from viewing data', 'Tiers only change username colors'],
+    correctAnswers: [0]
+  },
 
-  // Section E — Cameras, Sensors & Robot Configuration
-  { id: 41, question: "On a bimanual embodiment, how many wrist cameras are required at minimum?", options: ["None", "One total", "One on each wrist", "Three on each wrist"], correctAnswers: [2] },
-  { id: 42, question: "Which camera arrangement satisfies the stated minimum requirement?", options: ["One room camera", "One overhead camera plus one camera on each wrist", "Two overhead cameras with no wrist cameras", "One head camera only"], correctAnswers: [1] },
-  { id: 43, question: "What must be visible in the overhead camera?", options: ["Only the robot's head", "Any relevant objects and both wrists", "Only the operator", "Only the workspace floor"], correctAnswers: [1] },
-  { id: 44, question: "Why is full overhead visibility important?", options: ["Models learn from visual features including arm positions", "It increases membership points", "It reduces robot weight", "It eliminates the need for joint data"], correctAnswers: [0] },
-  { id: 45, question: "Which situations can violate the overhead-camera requirement?", options: ["A hand reaches out of frame", "An object becomes invisible", "The camera cannot see an action area", "The robot completes the task normally while everything remains visible"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 46, question: "What physical state must robotics foundation models predict at minimum?", options: ["Robot battery level", "Joint angles", "Internet speed", "Membership tier"], correctAnswers: [1] },
-  { id: 47, question: "Why is a URDF description required for new embodiments?", options: ["To describe the robot's kinematic structure", "To calculate Prisma Points", "To upload videos", "To control Discord permissions"], correctAnswers: [0] },
-  { id: 48, question: "What must the URDF's kinematic chain match?", options: ["The membership tier", "The robot's joint-angle configuration", "The camera resolution", "The task prompt length"], correctAnswers: [1] },
-  { id: 49, question: "What arm configuration is required?", options: ["Serial kinematic arms with 2–3 DoF", "Serial kinematic arms with 4–5 DoF", "Serial kinematic arms with 6–7 DoF", "Any number of DoF"], correctAnswers: [2] },
-  { id: 50, question: "Which end-effectors are allowed under the stated standard?", options: ["1-DoF grippers", "Dexterous hands", "Any camera", "Kinematic arms"], correctAnswers: [0, 1], isMultiple: true },
+  // ==========================================
+  // Category 5: Teleoperation_Data (Questions 77 - 95)
+  // ==========================================
+  {
+    id: 77,
+    category: 'Teleoperation_Data',
+    question: 'What is "Teleoperation" in robotic data collection?',
+    options: ['A human operator controlling a robot remotely to record demonstration trajectories', 'Robots watching television shows', 'Automated telephone switching', 'Making satellite internet calls'],
+    correctAnswers: [0]
+  },
+  {
+    id: 78,
+    category: 'Teleoperation_Data',
+    question: 'Which devices are commonly used by human teleoperators? (Multiple answers apply)',
+    options: ['VR Headsets with motion controllers', 'Exoskeleton gloves with haptic feedback', 'Leader-Follower robotic arm rigs', 'Standard TV remotes'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 79,
+    category: 'Teleoperation_Data',
+    question: 'Why is human teleoperation data considered "Gold Standard" for imitation learning?',
+    options: ['It provides natural human dexterity, intuition, and real physics interaction', 'It is completely generated by computer code', 'It takes zero time to record', 'It does not require sensors'],
+    correctAnswers: [0]
+  },
+  {
+    id: 80,
+    category: 'Teleoperation_Data',
+    question: 'What is a "Kinematic Trajectory" in teleoperation logs?',
+    options: ['A time-series sequence of 3D positions, velocities, and orientations of robot joints', 'A single photograph of a robot', 'The user manual PDF', 'The robot factory invoice'],
+    correctAnswers: [0]
+  },
+  {
+    id: 81,
+    category: 'Teleoperation_Data',
+    question: 'What is "Haptic Feedback" in teleoperation rigs?',
+    options: ['Transmitting physical resistance and touch forces back to the human operator', 'Playing stereo sound effects', 'Lighting up indicator LEDs', 'Showing subtitles on screen'],
+    correctAnswers: [0]
+  },
+  {
+    id: 82,
+    category: 'Teleoperation_Data',
+    question: 'Why must teleoperation data record gripper state (open/close percentage)?',
+    options: ['To accurately teach the model when to grasp, hold, and release objects', 'To measure battery drainage', 'To adjust camera brightness', 'To test mechanical sounds'],
+    correctAnswers: [0]
+  },
+  {
+    id: 83,
+    category: 'Teleoperation_Data',
+    question: 'What is "Latency" in teleoperation and why is low latency crucial?',
+    options: ['Delay between operator movement and robot response; low latency prevents clumsy collisions', 'The length of the USB cable', 'The weight of the robot', 'The screen refresh rate'],
+    correctAnswers: [0]
+  },
+  {
+    id: 84,
+    category: 'Teleoperation_Data',
+    question: 'What is "Demonstration Diversity" in physical dataset curation?',
+    options: ['Collecting actions across varied lighting, table heights, objects, and backgrounds', 'Using only one identical wooden block', 'Recording in total darkness only', 'Restricting demonstrations to 1 second'],
+    correctAnswers: [0]
+  },
+  {
+    id: 85,
+    category: 'Teleoperation_Data',
+    question: 'Why are multi-angle perspectives recorded during teleoperation?',
+    options: ['To train robots with robust 3D perception immune to self-occlusion', 'To make promotional trailers', 'To waste hard drive storage', 'To test different video players'],
+    correctAnswers: [0]
+  },
+  {
+    id: 86,
+    category: 'Teleoperation_Data',
+    question: 'What is a "Sub-goal" in a robotic teleoperation episode?',
+    options: ['An intermediate milestone (e.g., reach cup, grasp handle, lift) within a task', 'Turning off the robot', 'The end of the working day', 'Restarting the computer'],
+    correctAnswers: [0]
+  },
+  {
+    id: 87,
+    category: 'Teleoperation_Data',
+    question: 'What is "Data Augmentation" for robotic visual inputs?',
+    options: ['Applying slight color jitter, rotation, or crops to make visual models robust', 'Drawing fake robots on images', 'Deleting every second frame', 'Converting color videos to black-and-white only'],
+    correctAnswers: [0]
+  },
+  {
+    id: 88,
+    category: 'Teleoperation_Data',
+    question: 'What is "Dead reckoning" error in mobile robot trajectory logging?',
+    options: ['Accumulated drift in position estimation from wheel slip over time', 'A completely dead battery', 'A broken camera lens', 'An unplugged network cable'],
+    correctAnswers: [0]
+  },
+  {
+    id: 89,
+    category: 'Teleoperation_Data',
+    question: 'Why are failed demonstrations sometimes useful if labeled properly?',
+    options: ['They teach models what NOT to do through negative reinforcement learning', 'They make the dataset look larger', 'They test the delete button', 'They take less memory'],
+    correctAnswers: [0]
+  },
+  {
+    id: 90,
+    category: 'Teleoperation_Data',
+    question: 'What is "Zero-Shot" transfer in Physical AI?',
+    options: ['A robot successfully executing a task in a novel environment without prior training on that specific setup', 'Shooting zero photos', 'Failing a task immediately', 'Having zero robots in the lab'],
+    correctAnswers: [0]
+  },
+  {
+    id: 91,
+    category: 'Teleoperation_Data',
+    question: 'Which sensor measures angular velocity in teleoperation tracking? (Multiple answers apply)',
+    options: ['Gyroscope (IMU)', 'Optical Tracking Sensors', 'Accelerometer', 'Microphone diaphragm'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 92,
+    category: 'Teleoperation_Data',
+    question: 'What does "Frame Rate (FPS)" synchronization ensure in multi-modal logs?',
+    options: ['That camera frames and joint torque readings align at the exact millisecond', 'That videos play in slow motion', 'That file sizes stay below 1MB', 'That monitors stay awake'],
+    correctAnswers: [0]
+  },
+  {
+    id: 93,
+    category: 'Teleoperation_Data',
+    question: 'Why is teleoperation data collection expanding beyond lab environments?',
+    options: ['To capture the messiness and unpredictability of real-world homes and factories', 'Because labs are too quiet', 'To avoid using electricity', 'To reduce internet bandwidth'],
+    correctAnswers: [0]
+  },
+  {
+    id: 94,
+    category: 'Teleoperation_Data',
+    question: 'What is "Bimanual Manipulation" in teleoperation recordings?',
+    options: ['Coordinating two robotic arms simultaneously to perform complex tasks', 'Operating a robot with feet', 'Controlling two robots in different cities', 'Typing on two keyboards'],
+    correctAnswers: [0]
+  },
+  {
+    id: 95,
+    category: 'Teleoperation_Data',
+    question: 'How does PrismaX incentivize teleoperators worldwide?',
+    options: ['Through transparent Web3 tokenized reward distribution based on data quality', 'By giving out physical certificates only', 'By charging teleoperators an hourly fee', 'By lottery tickets'],
+    correctAnswers: [0]
+  },
 
-  // Section F — Automated Checks & Human Validation
-  { id: 51, question: "What can software enforce at the platform level?", options: ["Many baseline requirements", "Whether a demonstration is interesting to a human", "Whether an action looks confident", "Whether a task is creatively executed"], correctAnswers: [0] },
-  { id: 52, question: "Why are validators still needed after automated baseline checks?", options: ["Automated checks cannot fully replace human judgment", "Software cannot process video", "Validators build all robots", "Validators write all URDF files"], correctAnswers: [0] },
-  { id: 53, question: "What is the validator's primary job?", options: ["Decide whether a demonstration is training-grade", "Manufacture robots", "Sell memberships", "Operate the blockchain"], correctAnswers: [0] },
-  { id: 54, question: "Which qualities require human judgment?", options: ["Whether a grasp was fumbled", "Whether the task matches the prompt", "Whether a demonstration is repetitive", "Whether the platform can check a basic camera requirement"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 55, question: "What does the statement 'Automated checks approximate. People judge.' emphasize?", options: ["Human judgment remains central to data quality", "Software should never be used", "Robots cannot collect data", "Automated systems are always useless"], correctAnswers: [0] },
-  { id: 56, question: "What is the human validation layer compared to in language models?", options: ["Human judgment used to score what is good and bad", "Robot hardware manufacturing", "GPU production", "Financial auditing"], correctAnswers: [0] },
-  { id: 57, question: "What is the relationship between model quality and data quality?", options: ["Better models generally require better training data", "Data quality has no effect", "Only model size matters", "Only hardware matters"], correctAnswers: [0] },
-  { id: 58, question: "What does the PrismaX standards rubric contain?", options: ["Pass/Fail and sliding-scale criteria", "Only membership prices", "Only hardware specifications", "Only community rules"], correctAnswers: [0] },
-  { id: 59, question: "Which criteria are primarily evaluated as Pass/Fail?", options: ["Overhead camera coverage", "Lighting/image clarity", "Task matching the prompt", "Diversity score"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 60, question: "Which criteria are evaluated on a sliding scale?", options: ["Trajectory speed", "Trajectory smoothness", "Diversity", "Level of completion"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
+  // ==========================================
+  // Category 6: Trivia_Community (Questions 96 - 114)
+  // ==========================================
+  {
+    id: 96,
+    category: 'Trivia_Community',
+    question: 'What is the official name of the weekly PrismaX community trivia?',
+    options: ['Trivia Tango', 'Consensus Carnival', 'Robotics Rumble', 'Matrix Marathon'],
+    correctAnswers: [0]
+  },
+  {
+    id: 97,
+    category: 'Trivia_Community',
+    question: 'How often does Trivia Tango take place?',
+    options: ['Weekly', 'Once every five years', 'Only on leap years', 'Twice every decade'],
+    correctAnswers: [0]
+  },
+  {
+    id: 98,
+    category: 'Trivia_Community',
+    question: 'What is the core purpose of the PrismaX Trivia Knowledge app?',
+    options: ['An interactive prep hub to train validators and community members for Trivia Tango', 'An e-commerce clothing store', 'A video streaming service', 'A food delivery menu'],
+    correctAnswers: [0]
+  },
+  {
+    id: 99,
+    category: 'Trivia_Community',
+    question: 'How many randomized questions are presented per quiz session in the app?',
+    options: ['8 Questions', '50 Questions', '1 Question', '100 Questions'],
+    correctAnswers: [0]
+  },
+  {
+    id: 100,
+    category: 'Trivia_Community',
+    question: 'What rule ensures high question variety in the PrismaX Quiz Gateway?',
+    options: ['Questions are drawn dynamically with maximum 1 question per category', 'All 8 questions are always from Category 1', 'Questions are fixed and never change', 'Questions are repeated 8 times'],
+    correctAnswers: [0]
+  },
+  {
+    id: 101,
+    category: 'Trivia_Community',
+    question: 'Which interactive features are included in the quiz app? (Multiple answers apply)',
+    options: ['Instant answer validation with color-coded feedback', 'Custom avatar upload & DiceBear fallback', 'Confetti celebration animation upon completion', 'Mandatory subscription payment popups'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 102,
+    category: 'Trivia_Community',
+    question: 'What indicator appears on questions requiring multiple selections?',
+    options: ['A slim italic note: "*(Multiple answers may apply)"', 'A flashing red siren', 'A popup warning box', 'No indicator at all'],
+    correctAnswers: [0]
+  },
+  {
+    id: 103,
+    category: 'Trivia_Community',
+    question: 'What technology powers the 1-click photocard generation in the app?',
+    options: ['Client-side html-to-image canvas rendering at 3x pixel ratio', 'Server screenshot scraping', 'Manual photo editing by staff', 'Browser print screen'],
+    correctAnswers: [0]
+  },
+  {
+    id: 104,
+    category: 'Trivia_Community',
+    question: 'What visual aesthetic was chosen for the PrismaX Trivia UI?',
+    options: ['Warm robotic sand/bronze gradient with frosted glassmorphism', 'Neon purple retro arcade', 'Pitch black terminal only', 'Bright cartoon rainbow'],
+    correctAnswers: [0]
+  },
+  {
+    id: 105,
+    category: 'Trivia_Community',
+    question: 'Where can participants share their completed Validator Pass with 1-click?',
+    options: ['Directly to X (formerly Twitter) with pre-filled score metrics', 'To an analog fax machine', 'To a local text printer only', 'Via postal letter'],
+    correctAnswers: [0]
+  },
+  {
+    id: 106,
+    category: 'Trivia_Community',
+    question: 'Why does Trivia Tango foster a stronger validator ecosystem?',
+    options: ['It educates participants on technical mechanics while gamifying community learning', 'It excludes new members', 'It deletes inactive accounts', 'It requires complex coding'],
+    correctAnswers: [0]
+  },
+  {
+    id: 107,
+    category: 'Trivia_Community',
+    question: 'What happens when you click the Refresh / Retake button on the result screen?',
+    options: ['You return to the intro screen to start a fresh randomized quiz session', 'Your account is deleted', 'The browser window closes', 'The computer reboots'],
+    correctAnswers: [0]
+  },
+  {
+    id: 108,
+    category: 'Trivia_Community',
+    question: 'What handle is automatically mentioned in the X share text?',
+    options: ['@PrismaX_AI', '@Bitcoin', '@Google', '@OpenAI'],
+    correctAnswers: [0]
+  },
+  {
+    id: 109,
+    category: 'Trivia_Community',
+    question: 'How is user privacy protected in the PrismaX Quiz Gateway?',
+    options: ['Everything runs client-side in the browser with zero external image tracking', 'All photos are sold to ad brokers', 'Users must enter government IDs', 'Passwords are broadcast publicly'],
+    correctAnswers: [0]
+  },
+  {
+    id: 110,
+    category: 'Trivia_Community',
+    question: 'What format is the downloaded Validator Pass saved in?',
+    options: ['High-resolution .PNG image', '.TXT plain text', '.EXE executable', '.MP3 audio file'],
+    correctAnswers: [0]
+  },
+  {
+    id: 111,
+    category: 'Trivia_Community',
+    question: 'What domain is branded on the footer of every Validator Pass?',
+    options: ['app.prismax.ai', 'google.com', 'wikipedia.org', 'trivia.com'],
+    correctAnswers: [0]
+  },
+  {
+    id: 112,
+    category: 'Trivia_Community',
+    question: 'Which of the following make Trivia Tango accessible to global participants? (Multiple answers apply)',
+    options: ['Fast-loading responsive web design on mobile and desktop', 'Zero blockchain gas fees to play practice quizzes', 'Intuitive UI with instant visual feedback', 'Mandatory desktop hardware dongle'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 113,
+    category: 'Trivia_Community',
+    question: 'What role does community feedback play in improving PrismaX quizzes?',
+    options: ['New questions and technical corrections are regularly integrated from community suggestions', 'Feedback is ignored', 'Feedback channels are closed', 'Only bot suggestions are accepted'],
+    correctAnswers: [0]
+  },
+  {
+    id: 114,
+    category: 'Trivia_Community',
+    question: 'What motto is showcased under the top header banner on the Intro screen?',
+    options: ['Test Today, Validate Tomorrow', 'Move Fast and Break Things', 'Code Is Law', 'Don’t Be Evil'],
+    correctAnswers: [0]
+  },
 
-  // Section G — Pass/Fail Criteria
-  { id: 61, question: "What does the 'Task Matches Prompt' criterion evaluate?", options: ["Whether the demonstration semantically matches the requested task", "Whether the robot moves quickly", "Whether the lighting is bright", "Whether the reviewer is an Innovator"], correctAnswers: [0] },
-  { id: 62, question: "A prompt asks the robot to place shoes in shoeboxes, but the demonstration places them in bags. What is the issue?", options: ["Poor diversity", "Task does not match the prompt", "Poor lighting", "Excessive trajectory speed"], correctAnswers: [1] },
-  { id: 63, question: "Why is prompt interpretation important?", options: ["The interpretation of tasks can be open-ended and needs sensible judgment", "It determines membership pricing", "It controls camera resolution", "It determines Validator rotation"], correctAnswers: [0] },
-  { id: 64, question: "What does 'trajectory should be separable' mean?", options: ["Actions should be clearly separated rather than overlapping ambiguously", "Each video must have multiple robots", "Both hands should always perform different tasks", "The robot must stop between every movement"], correctAnswers: [0] },
-  { id: 65, question: "Which actions violate trajectory separability?", options: ["Picking up two items with one hand", "Each arm working on different tasks simultaneously", "One arm completing one clearly defined task", "One clear action followed by another"], correctAnswers: [0, 1], isMultiple: true },
-  { id: 66, question: "Why is trajectory separability important?", options: ["Training pipelines may split tasks into chunks and label them", "It increases membership prices", "It eliminates the need for cameras", "It makes robots heavier"], correctAnswers: [0] },
-  { id: 67, question: "What does 'No Struggling' mean?", options: ["Mistakes must never happen", "Mistakes should be small and quickly recovered from", "The robot must always move at maximum speed", "The robot must never pause for any reason"], correctAnswers: [1] },
-  { id: 68, question: "Which is an example of unacceptable struggling?", options: ["A small mistake followed by quick recovery", "Repeatedly attempting to zip a zipper before succeeding", "A slightly slower movement during difficult manipulation", "A different valid task strategy"], correctAnswers: [1] },
-  { id: 69, question: "Why can repeated mistakes be harmful?", options: ["The model may learn to copy the mistakes", "They always increase diversity", "They improve image quality", "They increase the robot's DoF"], correctAnswers: [0] },
-  { id: 70, question: "Which statement about mistakes is correct?", options: ["Every mistake automatically fails a demonstration", "Small, quickly recovered mistakes can be useful", "All mistakes improve training data", "Mistakes have no effect on models"], correctAnswers: [1] },
+  // ==========================================
+  // Category 7: Network_Architecture (Questions 115 - 133)
+  // ==========================================
+  {
+    id: 115,
+    category: 'Network_Architecture',
+    question: 'Why does PrismaX implement a decentralized architecture for robotics data?',
+    options: ['To ensure censorship resistance, global data provenance, and fair incentive alignment', 'To make servers run slower', 'To prevent robots from connecting to internet', 'To keep all data private to one CEO'],
+    correctAnswers: [0]
+  },
+  {
+    id: 116,
+    category: 'Network_Architecture',
+    question: 'What is "Data Provenance" in the PrismaX network?',
+    options: ['The verifiable, immutable history of where, when, and how a dataset was recorded', 'The price of the dataset', 'The file download speed', 'The color of the hard drive'],
+    correctAnswers: [0]
+  },
+  {
+    id: 117,
+    category: 'Network_Architecture',
+    question: 'What are cryptographic hashes used for in data consensus?',
+    options: ['To create unique digital fingerprints of trajectories ensuring they cannot be modified', 'To encrypt monitor screen brightness', 'To generate computer audio', 'To design website logos'],
+    correctAnswers: [0]
+  },
+  {
+    id: 118,
+    category: 'Network_Architecture',
+    question: 'Which layer handles the distribution of rewards to contributors and validators? (Multiple answers apply)',
+    options: ['Smart Contract Incentive Protocols', 'Transparent On-chain Settlement', 'Decentralized Validator Registry', 'Manual Paper Checks'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 119,
+    category: 'Network_Architecture',
+    question: 'What is an "Oracle" in a decentralized Physical AI network?',
+    options: ['A mechanism that bridges real-world robotic execution proof into smart contracts', 'A mythical prediction tool', 'A database cooling pipe', 'A wireless keyboard'],
+    correctAnswers: [0]
+  },
+  {
+    id: 120,
+    category: 'Network_Architecture',
+    question: 'What does "Decentralized Physical Infrastructure Network" (DePIN) mean for robotics?',
+    options: ['Crowdsourcing physical data collection hardware and computational consensus globally', 'Building centralized server warehouses', 'Disconnecting all computers from networks', 'Manufacturing cars in one city'],
+    correctAnswers: [0]
+  },
+  {
+    id: 121,
+    category: 'Network_Architecture',
+    question: 'How are large robotic video and trajectory files stored efficiently?',
+    options: ['Decentralized content-addressed storage (e.g. IPFS/Arweave) with on-chain metadata', 'In email inbox attachments', 'On temporary USB flash drives', 'On printed paper QR codes'],
+    correctAnswers: [0]
+  },
+  {
+    id: 122,
+    category: 'Network_Architecture',
+    question: 'What is a "Merkle Root" in dataset batch verification?',
+    options: ['A single cryptographic hash representing the integrity of an entire dataset batch', 'The physical root of a tree', 'A network cable connector', 'The root folder on Windows desktop'],
+    correctAnswers: [0]
+  },
+  {
+    id: 123,
+    category: 'Network_Architecture',
+    question: 'Why are Zero-Knowledge Proofs (ZKPs) valuable in Physical AI verification?',
+    options: ['They allow validating that a dataset meets safety specs without revealing proprietary visual details', 'They make video files zero megabytes', 'They delete all secret data', 'They turn off computer screens'],
+    correctAnswers: [0]
+  },
+  {
+    id: 124,
+    category: 'Network_Architecture',
+    question: 'What is "Slashing" in proof-of-stake consensus systems?',
+    options: ['Penalizing a validator’s deposited stake for submitting dishonest or fraudulent data ratings', 'Physically cutting network wires', 'Deleting user accounts randomly', 'Discounting store prices'],
+    correctAnswers: [0]
+  },
+  {
+    id: 125,
+    category: 'Network_Architecture',
+    question: 'What does "High Throughput" mean for the PrismaX consensus layer?',
+    options: ['The ability to process and verify thousands of robotic trajectory frames per second', 'Having very loud server fans', 'High electricity consumption', 'Downloading movies quickly'],
+    correctAnswers: [0]
+  },
+  {
+    id: 126,
+    category: 'Network_Architecture',
+    question: 'How do smart contracts automate dataset licensing for robotics labs?',
+    options: ['By instantly granting programmatic decryption keys upon payment of data royalties', 'By sending legal letters via postal mail', 'By scheduling phone calls with lawyers', 'By locking all computers'],
+    correctAnswers: [0]
+  },
+  {
+    id: 127,
+    category: 'Network_Architecture',
+    question: 'What is "Fault Tolerance" in a distributed validator network?',
+    options: ['The system continuing to operate correctly even if some validator nodes crash or act maliciously', 'The system shutting down on any error', 'Ignoring all system bugs', 'Turning off the firewall'],
+    correctAnswers: [0]
+  },
+  {
+    id: 128,
+    category: 'Network_Architecture',
+    question: 'Why is content-addressable storage (CID) vital for AI reproducibility?',
+    options: ['Because data cannot be secretly altered without changing its unique cryptographic CID', 'Because it makes videos play faster', 'Because it uses less RAM', 'Because it translates foreign languages'],
+    correctAnswers: [0]
+  },
+  {
+    id: 129,
+    category: 'Network_Architecture',
+    question: 'What role do lightweight edge nodes play in Physical AI networks?',
+    options: ['Performing on-device sanity checks on robots before uploading to the network', 'Replacing full blockchain nodes completely', 'Heating the room', 'Playing background music'],
+    correctAnswers: [0]
+  },
+  {
+    id: 130,
+    category: 'Network_Architecture',
+    question: 'Which mechanisms ensure validator neutrality? (Multiple answers apply)',
+    options: ['Blinded data evaluation batches', 'Randomized assignment of review tasks', 'Decentralized peer auditing', 'Allowing uploaders to choose their own reviewers'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 131,
+    category: 'Network_Architecture',
+    question: 'What is "State Finality" in dataset validation settlement?',
+    options: ['The point at which consensus data is permanently etched into the ledger and cannot be reverted', 'The end of the working day', 'Restarting the database', 'Deleting temporary browser cookies'],
+    correctAnswers: [0]
+  },
+  {
+    id: 132,
+    category: 'Network_Architecture',
+    question: 'How does decentralized architecture prevent vendor lock-in for AI robotics?',
+    options: ['By keeping data formats open-standard and governed by an open network rather than one corporation', 'By requiring proprietary closed-source dongles', 'By banning open-source algorithms', 'By restricting data to one cloud vendor'],
+    correctAnswers: [0]
+  },
+  {
+    id: 133,
+    category: 'Network_Architecture',
+    question: 'What ensures that contributor rewards are distributed fairly without middlemen?',
+    options: ['Automated smart contract escrow protocols', 'Manual executive approval', 'Third-party banking intermediaries', 'Paper checks sent by courier'],
+    correctAnswers: [0]
+  },
 
-  // Section H — Non-Causal Errors
-  { id: 71, question: "What is a non-causal error?", options: ["An error that only affects future actions", "An error that undoes or damages previously completed work", "An error caused by slow movement", "An error caused by low membership points"], correctAnswers: [1] },
-  { id: 72, question: "Which is a non-causal error?", options: ["Quickly correcting a small grip mistake", "Knocking over a previously completed vase while doing a new action", "Moving slightly slowly", "Taking a different valid route"], correctAnswers: [1] },
-  { id: 73, question: "Which examples are non-causal errors?", options: ["Spilling a previously packed container", "Knocking over a vase", "Plugging a cable into the wrong charger and then going back to correct it", "Briefly adjusting a grip before continuing"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 74, question: "Why are non-causal errors undesirable?", options: ["They can teach the model to reproduce behavior that undoes previous work", "They make the video longer", "They increase camera resolution", "They automatically reduce diversity to zero"], correctAnswers: [0] },
-  { id: 75, question: "What distinguishes a useful small mistake from a non-causal error?", options: ["A useful mistake can be quickly recovered from without undoing past work", "A useful mistake must always involve both arms", "A non-causal error is always caused by poor lighting", "A useful mistake must receive a diversity score of 5"], correctAnswers: [0] },
-
-  // Section I — Sliding-Scale Criteria
-  { id: 76, question: "Which criterion evaluates how quickly a trajectory is performed?", options: ["Completion quality", "Diversity", "Trajectory speed", "Level of completion"], correctAnswers: [2] },
-  { id: 77, question: "What speed should trajectories generally approach?", options: ["0.25× human speed", "0.5× human speed", "1× or higher human speed", "3× human speed only"], correctAnswers: [2] },
-  { id: 78, question: "When can under-1× speed be acceptable?", options: ["For difficult manipulation tasks involving limitations of 1-DoF grippers, when trajectories contain no errors", "Whenever the reviewer prefers slow robots", "Whenever the task is repetitive", "Whenever the lighting is poor"], correctAnswers: [0] },
-  { id: 79, question: "Why does trajectory speed matter?", options: ["Speed transfers directly to the model", "Speed determines membership price", "Speed determines camera resolution", "Speed determines the robot's URDF"], correctAnswers: [0] },
-  { id: 80, question: "What does trajectory smoothness evaluate?", options: ["Whether movement has confidence without pauses, stutters, or uncertainty", "Whether the task is completed 100%", "Whether the camera is overhead", "Whether the task is creative"], correctAnswers: [0] },
-  { id: 81, question: "Which movements would indicate poor trajectory smoothness?", options: ["Long pauses", "Stutters", "Visible uncertainty", "Confident continuous motion"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 82, question: "What does completion quality primarily consider?", options: ["Whether mistakes occurred during task completion", "How many cameras were used", "The membership cost", "The robot's number of DoF"], correctAnswers: [0] },
-  { id: 83, question: "What does diversity compare?", options: ["The episode against other episodes of the same task", "The episode against membership levels", "The robot against human operators", "The camera against the URDF"], correctAnswers: [0] },
-  { id: 84, question: "What does a diversity score of 0 represent?", options: ["No attempt", "Exactly the same as another run", "50% completion", "Extremely innovative execution"], correctAnswers: [1] },
-  { id: 85, question: "What does a diversity score of 5 represent?", options: ["No attempt", "Exact repetition", "Extremely innovative execution", "Complete failure"], correctAnswers: [2] },
-
-  // Section J — Completion & Integrated Scenarios
-  { id: 86, question: "What does 'Level of Completion' measure?", options: ["How much of the task was completed", "How quickly the task was completed", "How diverse the task was", "How many cameras recorded it"], correctAnswers: [0] },
-  { id: 87, question: "What does a Level of Completion score of 0 represent?", options: ["25% completion", "50% completion", "No attempt was made", "100% completion"], correctAnswers: [2] },
-  { id: 88, question: "What does a Level of Completion score of 5 represent?", options: ["No attempt", "25% completion", "75% completion", "100% completion"], correctAnswers: [3] },
-  { id: 89, question: "Which statements about partially completed tasks are correct?", options: ["They can sometimes still be usable as training data", "They automatically receive a completion score of 5", "The level of completion is still evaluated", "Partial completion means the data is always useless"], correctAnswers: [0, 2], isMultiple: true },
-  { id: 90, question: "A robot completes a difficult manipulation at 0.8× human speed with no errors. How should the speed criterion be viewed?", options: ["Automatically unacceptable", "Potentially acceptable because difficult 1-DoF manipulation can justify under-1× speed when error-free", "Automatically a score of 5", "It must be rejected because all tasks require 2× human speed"], correctAnswers: [1] },
-  { id: 91, question: "A demonstration has excellent lighting, full camera coverage, and correct task alignment, but the robot repeatedly struggles to connect a component. Which Pass/Fail criterion is most directly violated?", options: ["Diversity", "No Struggling", "Level of Completion", "Trajectory Speed"], correctAnswers: [1] },
-  { id: 92, question: "A demonstration completes the correct task but repeatedly performs overlapping actions with both arms working on different tasks simultaneously. Which criterion is most directly violated?", options: ["Trajectory Should Be Separable", "Images and Lighting Are Clear", "Completion Quality", "Diversity"], correctAnswers: [0] },
-  { id: 93, question: "A robot performs a task differently from previous demonstrations, but the method remains semantically valid and actions remain separable. Which sliding-scale criterion is primarily affected?", options: ["Diversity", "Lighting", "No Struggling", "Overhead Camera Coverage"], correctAnswers: [0] },
-  { id: 94, question: "A demonstration has perfect task completion but the camera is so dim that severe compression artifacts appear throughout the episode. What is the likely result?", options: ["It passes because completion is perfect", "It fails the image and lighting criterion", "It receives diversity 5", "It automatically becomes Validator-approved"], correctAnswers: [1] },
-  { id: 95, question: "A robot's wrist temporarily leaves the overhead camera's view while reaching for an object. Which criterion is affected?", options: ["Overhead camera full-view requirement", "Trajectory speed", "Diversity", "Level of completion"], correctAnswers: [0] },
-  { id: 96, question: "Which combination best describes high-quality robotics training data under the PrismaX standards?", options: ["Clear and well-lit imagery", "Semantically correct task execution", "Smooth, capable trajectories", "Repeated lengthy mistakes"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 97, question: "Why does PrismaX consider robotics 'hardware-rich and data-poor'?", options: ["There are many physical robots, but high-quality training data remains limited", "Robots cannot collect any data", "Robotics requires no hardware", "There is too much high-quality data available"], correctAnswers: [0] },
-  { id: 98, question: "What is the central role of PrismaX's Data Standards?", options: ["To provide repeatable guidelines for collecting and evaluating pretraining-grade robotics data", "To determine cryptocurrency prices", "To replace all robotics hardware", "To eliminate human validators completely"], correctAnswers: [0] },
-  { id: 99, question: "Which statement best summarizes the role of Validators?", options: ["Validators are the human scoring layer that judges whether demonstrations meet the quality standard", "Validators primarily manufacture robots", "Validators only moderate Discord", "Validators automatically generate robotics data"], correctAnswers: [0] },
-  { id: 100, question: "Which statement best captures the central message of the PrismaX Data Standards?", options: ["Bigger datasets automatically produce better models", "Better models begin with better-quality training data held to a meaningful standard", "Human judgment should be removed from robotics data", "Robot hardware is more important than training data"], correctAnswers: [1] },
-
-  // Section K — Verify Quality & The First 100
-  { id: 101, question: "What was significant about the public opening of the Verify Quality tab?", options: ["Robots became publicly purchasable", "Anyone eligible could score robot training data and earn for the work", "PrismaX launched its own robot hardware", "AI models became publicly downloadable"], correctAnswers: [1] },
-  { id: 102, question: "What are the people who score robotics training demonstrations called?", options: ["Operators", "Reviewers", "Validators", "Trainers"], correctAnswers: [2] },
-  { id: 103, question: "What are validators expected to do?", options: ["Score robotics demonstrations", "Build a track record", "Help determine training-grade data", "Manufacture robot hardware", "Compete for founding validator roles"], correctAnswers: [0, 1, 2, 4], isMultiple: true },
-  { id: 104, question: "How many validators make up The First 100?", options: ["50", "75", "100", "150"], correctAnswers: [2] },
-  { id: 105, question: "How is membership in The First 100 initially determined?", options: ["By membership type", "By number of robots owned", "By scores closest to consensus", "By joining date"], correctAnswers: [2] },
-
-  // Section L — Physical AI & Data
-  { id: 106, question: "PrismaX describes Physical AI as:", options: ["Hardware-poor and data-rich", "Hardware-rich and data-poor", "Hardware-rich and data-rich", "Hardware-poor and data-poor"], correctAnswers: [1] },
-  { id: 107, question: "According to the article, what is the major missing resource for teaching robots?", options: ["More GPUs", "High-quality training data", "More cryptocurrencies", "More autonomous vehicles"], correctAnswers: [1] },
-  { id: 108, question: "Why isn't simply increasing robotics data volume enough?", options: ["Task selection can remain repetitive", "Data can be too narrow", "Data can be too synthetic", "Data can be inconsistent", "More volume automatically guarantees quality"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
-  { id: 109, question: "What can software easily detect but human judgment is needed to interpret at a higher level?", options: ["Black frames and camera synchronization", "Cryptocurrency transactions", "Membership upgrades", "Robot manufacturing costs"], correctAnswers: [0] },
-  { id: 110, question: "What is the core principle behind the statement 'Better Models Start With Better Data'?", options: ["Larger robots create better models", "Better training data contributes to better robotics models", "More validators always create better models", "More expensive memberships create better models"], correctAnswers: [1] },
-
-  // Section M — Verify Quality Workflow
-  { id: 111, question: "What does a validator select before beginning a review?", options: ["Token, wallet, and membership", "Environment, task, and dataset", "Robot, operator, and investor", "Camera, GPU, and model"], correctAnswers: [1] },
-  { id: 112, question: "What does a dataset contain?", options: ["Multiple episodes", "Multiple memberships", "Multiple validators only", "Multiple robots only"], correctAnswers: [0] },
-  { id: 113, question: "Which are examples of initial pass/fail checks?", options: ["Camera feed clarity", "Task completion according to instructions", "Robot hand remaining in frame", "Camera synchronization", "Operator's membership level"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
-  { id: 114, question: "If an episode fails one of the required pass/fail criteria, what happens?", options: ["It automatically receives a high quality score", "It remains training-grade if the operator was skilled", "It is not training-grade", "It gets a diversity score of 5"], correctAnswers: [2] },
-  { id: 115, question: "After the pass/fail stage, validators evaluate quality using:", options: ["A sliding scale", "Membership tiers", "Token-weighted voting", "Random selection"], correctAnswers: [0] },
-
-  // Section N — Consensus & Track Record
-  { id: 116, question: "Why are episodes scored independently by many validators?", options: ["To create a consensus", "To increase robot speed", "To determine membership price", "To eliminate all human judgment"], correctAnswers: [0] },
-  { id: 117, question: "What happens when validators significantly disagree?", options: ["The episode is deleted automatically", "The data goes to expert review", "Everyone receives maximum points", "The lowest score automatically wins"], correctAnswers: [1] },
-  { id: 118, question: "What happens after a validator submits a score?", options: ["It can be changed anytime", "It can be edited once by an expert", "It is final", "It is deleted after 24 hours"], correctAnswers: [2] },
-  { id: 119, question: "Why are submissions locked after being made?", options: ["To prevent validators from seeing robots", "To keep consensus accurate", "To reduce dataset size", "To increase membership prices"], correctAnswers: [1] },
-  { id: 120, question: "What does a validator's track record primarily reflect?", options: ["How many robots they own", "How closely their scores track consensus", "How many hours they spend on Discord", "How expensive their membership is"], correctAnswers: [1] },
-
-  // Section O — The First 100 & Membership
-  { id: 121, question: "Which memberships have access to Verify Quality scoring?", options: ["Explorer only", "Amplifier and Innovator", "Validator only", "All users regardless of membership"], correctAnswers: [1] },
-  { id: 122, question: "How many submission chances does an Amplifier receive in the first scoring window according to the Verify Quality article?", options: ["5", "10", "20", "30"], correctAnswers: [1] },
-  { id: 123, question: "How many submission chances does an Innovator receive in the first window?", options: ["10", "20", "30", "Unlimited"], correctAnswers: [2] },
-  { id: 124, question: "Every submission in the first window can potentially:", options: ["Help build a track record", "Earn Prisma Points", "Help a validator move toward The First 100", "Guarantee a place in The First 100"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 125, question: "Are there reserved seats in The First 100?", options: ["Yes, for Innovators", "Yes, for ambassadors", "Yes, for launch partners", "No, selection is open"], correctAnswers: [3] },
-
-  // Section P — Rotation & Validator Status
-  { id: 126, question: "What happens to the bottom 25% of The First 100 each month?", options: ["They receive permanent status", "They rotate out", "They receive double points", "They become ambassadors"], correctAnswers: [1] },
-  { id: 127, question: "Why does PrismaX rotate validators?", options: ["To keep the standard performance-based", "To eliminate all validators", "To reduce data quality", "To prioritize older members"], correctAnswers: [0] },
-  { id: 128, question: "What happens to the seats vacated through rotation?", options: ["They remain empty", "New validators can rotate in", "They are reserved for founders", "They are given to robot manufacturers"], correctAnswers: [1] },
-  { id: 129, question: "Once someone becomes part of The First 100, what major benefit is described?", options: ["Unlimited data scoring each month", "Free robotics hardware", "Guaranteed income", "Permanent validator status"], correctAnswers: [0] },
-  { id: 130, question: "Which statements correctly describe The First 100?", options: ["It consists of 100 validators", "Selection is based on scoring performance", "There are no reserved seats", "The list is permanently fixed", "Bottom performers can rotate out"], correctAnswers: [0, 1, 2, 4], isMultiple: true },
-
-  // Section Q — VLA Foundry
-  { id: 131, question: "Verify Quality is described as what in relation to the VLA Foundry?", options: ["The final product", "The first public step", "A separate unrelated system", "A replacement for the Foundry"], correctAnswers: [1] },
-  { id: 132, question: "What kind of datasets is the VLA Foundry intended to produce?", options: ["Diverse, large-scale, high-quality, usable datasets", "Only synthetic datasets", "Only video datasets", "Only humanoid datasets"], correctAnswers: [0] },
-  { id: 133, question: "What is the VLA Foundry loop?", options: ["Operators upload data", "Validators verify it", "Customers use it", "Training/evaluation provides feedback", "Data collection stops after validation"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
-  { id: 134, question: "Why can PrismaX maintain its data-quality standard across the Foundry?", options: ["It operates the system end to end", "It avoids using validators", "It only uses synthetic data", "It doesn't train models"], correctAnswers: [0] },
-  { id: 135, question: "What does the validator layer allow PrismaX to scale?", options: ["Human judgment about data quality", "Robot manufacturing only", "Membership sales", "Token trading"], correctAnswers: [0] },
-
-  // Section R — Launch Partners & Ecosystem
-  { id: 136, question: "How many Day 1 Launch Partners are named in the Verify Quality article?", options: ["8", "10", "11", "12"], correctAnswers: [2] },
-  { id: 137, question: "Which of the following are Day 1 Launch Partners?", options: ["Monad", "OpenMind", "Sentient", "Virtuals Protocol", "DeepMind"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
-  { id: 138, question: "Which additional organizations are listed as Day 1 Launch Partners?", options: ["Blockchain Builders Fund", "ChainGPT", "Peaq", "Perle Labs", "OpenAI"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
-  { id: 139, question: "Which organization appears in the list of Day 1 Launch Partners with 'Stanford' in its name?", options: ["Stanford AI Lab", "Stanford Robotics Institute", "Stanford Blockchain Accelerator", "Stanford Physical AI Center"], correctAnswers: [2] },
-  { id: 140, question: "What did the Day 1 Launch Partners and PrismaX Ambassadors do before the public launch?", options: ["Tested Verify Quality and scored real data", "Built all PrismaX robots", "Purchased all available memberships", "Created the VLA Foundry independently"], correctAnswers: [0] },
-
-  // Section S — Deeper Conceptual Questions
-  { id: 141, question: "Why can't software alone determine whether a demonstration is worth training on?", options: ["It cannot perform any automated checks", "Quality involves judgment such as smoothness, deliberate motion, and useful behavior", "Robots cannot generate video", "Software cannot detect cameras"], correctAnswers: [1] },
-  { id: 142, question: "Which qualities require meaningful human judgment?", options: ["Whether motion is smooth and deliberate", "Whether an operator handled the robot appropriately", "Whether a demonstration is worth training on", "Whether a camera feed is completely absent", "Whether a membership costs $99"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 143, question: "What analogy does PrismaX use for the human judgment layer in robotics?", options: ["The human judgment layer behind language models", "A cryptocurrency validator network", "A hardware manufacturing line", "A cloud-storage system"], correctAnswers: [0] },
-  { id: 144, question: "Why is repetitive robotics data considered problematic?", options: ["Models may gain little new information from repeated demonstrations", "It always makes videos longer", "It increases robot hardware costs", "It prevents cameras from working"], correctAnswers: [0] },
-  { id: 145, question: "Which characteristics best describe useful training-grade data?", options: ["High quality", "Appropriate variation", "Consistent standards", "Useful real-world demonstrations", "Maximum repetition"], correctAnswers: [0, 1, 2, 3], isMultiple: true },
-
-  // Section T — Integrated Scenario Questions
-  { id: 146, question: "A demonstration has excellent lighting, synchronized cameras, and complete task execution, but the operator repeatedly hesitates and makes uncertain movements. Which quality area is most affected?", options: ["Trajectory smoothness", "Diversity", "Camera coverage", "Membership status"], correctAnswers: [0] },
-  { id: 147, question: "Two validators review the same episode. Validator A's score is very close to the eventual consensus, while Validator B's score is far away. Who has the stronger track record from this episode?", options: ["Validator A", "Validator B", "Both equally", "Neither"], correctAnswers: [0] },
-  { id: 148, question: "A dataset contains many episodes of the same task. Different operators perform the task using slightly different valid approaches. Which conclusions are reasonable?", options: ["The dataset has useful variation", "Diversity may be higher", "The demonstrations can provide different experiences to the model", "The dataset is automatically invalid", "Every different approach must be rejected"], correctAnswers: [0, 1, 2], isMultiple: true },
-  { id: 149, question: "A validator submits a score, then realizes they misunderstood the episode and wants to change it. According to the Verify Quality system, what happens?", options: ["They can freely edit it", "They can edit it after one hour", "The submission is final", "They can replace it if another validator agrees"], correctAnswers: [2] },
-  { id: 150, question: "Which statements best summarize PrismaX's overall philosophy across Verify Quality and the VLA Foundry?", options: ["Better models start with better data", "Human judgment is important for judging data quality", "Real-world data quality matters more than simply maximizing volume", "Validation helps create a scalable quality layer", "Bigger datasets automatically guarantee better Physical AI"], correctAnswers: [0, 1, 2, 3], isMultiple: true }
+  // ==========================================
+  // Category 8: AI_Safety_Standards (Questions 134 - 150)
+  // ==========================================
+  {
+    id: 134,
+    category: 'AI_Safety_Standards',
+    question: 'What is the top priority in Physical AI safety benchmarks?',
+    options: ['Ensuring robotic actions are physically safe and do not endanger humans or surroundings', 'Making the robot look shiny in photos', 'Maximizing robot movement speed regardless of risk', 'Reducing camera resolution to save power'],
+    correctAnswers: [0]
+  },
+  {
+    id: 135,
+    category: 'AI_Safety_Standards',
+    question: 'What is a "Torque Limit Threshold" in robotic manipulation safety?',
+    options: ['The maximum allowable rotational force a joint can exert before an automatic safety stop triggers', 'The maximum battery charging speed', 'The speed of the cooling fan', 'The volume of the speaker'],
+    correctAnswers: [0]
+  },
+  {
+    id: 136,
+    category: 'AI_Safety_Standards',
+    question: 'What must a validator do if a dataset contains dangerous or violent trajectories?',
+    options: ['Flag and reject the dataset immediately with a critical safety violation tag', 'Approve it if the video resolution is high', 'Ignore it and skip to the next', 'Share it on public forums'],
+    correctAnswers: [0]
+  },
+  {
+    id: 137,
+    category: 'AI_Safety_Standards',
+    question: 'Why are "Collision Avoidance" policies verified before model deployment?',
+    options: ['To prevent robots from hitting obstacles, fragile items, or people during execution', 'To make the robot move louder', 'To test the durability of walls', 'To reduce computer memory'],
+    correctAnswers: [0]
+  },
+  {
+    id: 138,
+    category: 'AI_Safety_Standards',
+    question: 'Which of the following constitute physical safety violations? (Multiple answers apply)',
+    options: ['Uncontrolled joint velocity spikes near human operators', 'Commands instructing the robot to crush delicate objects', 'Erratic trajectory oscillations indicating loss of control', 'Properly calibrated smooth trajectory paths'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 139,
+    category: 'AI_Safety_Standards',
+    question: 'What is an "Emergency Stop (E-Stop)" trigger in robotic systems?',
+    options: ['A hardware or software interrupt that cuts motor power instantly in dangerous situations', 'A button that restarts the web browser', 'A command to take a screenshot', 'A sound mute button'],
+    correctAnswers: [0]
+  },
+  {
+    id: 140,
+    category: 'AI_Safety_Standards',
+    question: 'What is "Out-of-Distribution (OOD) Detection" in Physical AI models?',
+    options: ['The model recognizing when real-world sensory inputs differ drastically from training data and stopping safely', 'Detecting slow internet connections', 'Finding duplicate files on disk', 'Checking monitor color calibration'],
+    correctAnswers: [0]
+  },
+  {
+    id: 141,
+    category: 'AI_Safety_Standards',
+    question: 'Why is privacy filtering (e.g. face & license plate blurring) applied to robotics data?',
+    options: ['To protect human identity and comply with global data privacy regulations', 'To reduce video file size', 'To test image filters', 'To make images look artistic'],
+    correctAnswers: [0]
+  },
+  {
+    id: 142,
+    category: 'AI_Safety_Standards',
+    question: 'What is "Compliance Control" in robotic arms?',
+    options: ['Allowing the robot arm to yield gently when touching external objects rather than stiffly forcing through', 'Following government tax rules', 'Installing antivirus software', 'Agreeing to website cookie banners'],
+    correctAnswers: [0]
+  },
+  {
+    id: 143,
+    category: 'AI_Safety_Standards',
+    question: 'What is "Joint Limit Enforcement" in robotic trajectory validation?',
+    options: ['Ensuring the logged trajectory never commands a motor beyond its physical rotation range', 'Checking how many joints the robot has', 'Painting joints with warning colors', 'Tightening robot screws'],
+    correctAnswers: [0]
+  },
+  {
+    id: 144,
+    category: 'AI_Safety_Standards',
+    question: 'What is a "Safe Workspace Zone" (Geofence) for an autonomous robot?',
+    options: ['A strictly defined 3D volume within which the robot is permitted to operate', 'The website login page', 'The cardboard shipping box', 'The manufacturer’s office building'],
+    correctAnswers: [0]
+  },
+  {
+    id: 145,
+    category: 'AI_Safety_Standards',
+    question: 'How do fallback policies enhance humanoid robot safety?',
+    options: ['By executing safe crouching or power-down routines when balance is lost, preventing hard falls', 'By speeding up robot movements when falling', 'By restarting the robot’s Wi-Fi', 'By sounding a musical alarm only'],
+    correctAnswers: [0]
+  },
+  {
+    id: 146,
+    category: 'AI_Safety_Standards',
+    question: 'What does "Red Teaming" in Physical AI entail?',
+    options: ['Intentionally testing the AI system with adversarial, extreme, and unusual scenarios to find safety flaws', 'Painting robots in red color', 'Dividing the validator team into two sports teams', 'Deleting random database entries'],
+    correctAnswers: [0]
+  },
+  {
+    id: 147,
+    category: 'AI_Safety_Standards',
+    question: 'Why must force-torque sensors be periodically recalibrated?',
+    options: ['To prevent sensor drift that could cause the robot to exert hazardous unintended force', 'To keep the robot looking new', 'To change the sensor light color', 'To reset the user password'],
+    correctAnswers: [0]
+  },
+  {
+    id: 148,
+    category: 'AI_Safety_Standards',
+    question: 'Which factors are checked during physical data sanity auditing? (Multiple answers apply)',
+    options: ['Absence of infinite acceleration values (NaNs / nulls)', 'Consistency between visual motion and logged motor coordinates', 'Proper annotation of fragile object handling', 'The aesthetic font used on the operator’s shirt'],
+    correctAnswers: [0, 1, 2],
+    isMultiple: true
+  },
+  {
+    id: 149,
+    category: 'AI_Safety_Standards',
+    question: 'What is "Fail-Safe Default" in robotic control system architecture?',
+    options: ['The system automatically reverting to a safe, stationary state upon any unexpected failure or signal loss', 'Continuing previous motion blindly', 'Speeding up all motors', 'Deleting the operating system'],
+    correctAnswers: [0]
+  },
+  {
+    id: 150,
+    category: 'AI_Safety_Standards',
+    question: 'What is the overarching mission of PrismaX safety consensus standards?',
+    options: ['Building a trusted, verifiable data foundation for safe and beneficial human-robot coexistence', 'Creating automated robot battles', 'Restricting robotic research to one laboratory', 'Replacing all human interaction with machines'],
+    correctAnswers: [0]
+  }
 ];
