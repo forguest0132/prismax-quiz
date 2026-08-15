@@ -33,21 +33,26 @@ export default function PrismaXQuizApp() {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
+  // 🌟 ১৭টি ক্যাটাগরির মধ্য থেকে ৮টি ভিন্ন ক্যাটাগরি বাছাই করে প্রতিটা থেকে ঠিক ১টি প্রশ্ন সিলেক্ট করা
   const startQuiz = () => {
     if (!userName.trim()) return alert('Please enter your username!');
 
+    // ১. সব ইউনিক ক্যাটাগরি সংগ্রহ করা
     const uniqueCategories = Array.from(new Set(ALL_QUESTIONS.map(q => q.category)));
 
-    const selectedFromEachCategory: Question[] = [];
-    uniqueCategories.forEach(category => {
+    // ২. ক্যাটাগরিগুলোকে র‍্যান্ডমলি শাফেল করে যেকোনো ৮টি ক্যাটাগরি আলাদা করা
+    const pickedCategories = [...uniqueCategories].sort(() => 0.5 - Math.random()).slice(0, 8);
+
+    // ৩. নির্বাচিত ৮টি ক্যাটাগরির প্রতিটা থেকে ঠিক ১টি করে প্রশ্ন বাছাই করা
+    const selectedQuestions: Question[] = [];
+    pickedCategories.forEach(category => {
       const categoryQuestions = ALL_QUESTIONS.filter(q => q.category === category);
       const randomIndex = Math.floor(Math.random() * categoryQuestions.length);
-      selectedFromEachCategory.push(categoryQuestions[randomIndex]);
+      selectedQuestions.push(categoryQuestions[randomIndex]);
     });
 
-    const finalShuffledQuestions = [...selectedFromEachCategory]
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 8);
+    // ৪. ফাইনাল প্রশ্নগুলো এলোমেলো করা
+    const finalShuffledQuestions = [...selectedQuestions].sort(() => 0.5 - Math.random());
 
     setQuizQuestions(finalShuffledQuestions);
     setCurrentIndex(0);
@@ -151,7 +156,7 @@ export default function PrismaXQuizApp() {
   return (
     <main className="min-h-screen bg-[#ebe4d8] text-[#1c1b18] font-sans flex flex-col items-center justify-center p-3 sm:p-6 relative overflow-hidden selection:bg-[#cbb89d]">
       
-      {/* 🤖 GLOBAL WARM ROBOTIC BACKGROUND */}
+      {/* 🤖 GLOBAL BACKGROUND */}
       <div 
         className="fixed inset-0 bg-cover bg-right sm:bg-center pointer-events-none opacity-45 filter sepia-[0.35] contrast-[1.05] z-0"
         style={{ 
@@ -288,6 +293,7 @@ export default function PrismaXQuizApp() {
             />
           </div>
 
+          {/* Question Text */}
           <div className="mb-6 relative z-10">
             <h3 className="text-xl sm:text-[22px] font-semibold text-[#181613] leading-snug tracking-tight">
               {currentQ.question}
@@ -299,6 +305,7 @@ export default function PrismaXQuizApp() {
             )}
           </div>
 
+          {/* Options */}
           <div className="space-y-3 mb-7 relative z-10">
             {currentQ.options.map((option, idx) => {
               const isSelected = selectedAnswers.includes(idx);
@@ -372,7 +379,7 @@ export default function PrismaXQuizApp() {
         </div>
       )}
 
-      {/* 3. FINAL PHOTOCARD SCREEN (HIGH CONTRAST & CRISP FOOTER) */}
+      {/* 3. FINAL PHOTOCARD SCREEN */}
       {gameState === 'result' && (
         <div className="flex flex-col items-center gap-6 z-10 w-full max-w-md">
           
@@ -463,7 +470,7 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* 🌟 100% CLEAR, BOLD & CRISP FOOTER 🌟 */}
+            {/* Crisp Footer */}
             <div className="mt-4 pt-3.5 border-t border-[#2a2015]/30 flex flex-col items-center gap-2 relative z-10">
               <div className="w-full flex justify-between items-center text-[10.5px] text-[#1c150e] font-mono font-bold">
                 <span className="tracking-widest flex items-center gap-1.5">
@@ -472,14 +479,13 @@ export default function PrismaXQuizApp() {
                 <span className="tracking-wide">app.prismax.ai</span>
               </div>
 
-              {/* ✨ CRISP & STYLISH "Built by Boysun" ✨ */}
               <div className="text-[11px] font-serif italic font-semibold text-[#1f170f] tracking-wide">
                 Built by Boysun
               </div>
             </div>
           </div>
 
-          {/* ACTION BUTTONS */}
+          {/* Action Buttons */}
           <div className="w-full flex items-center gap-2.5">
             <button
               onClick={downloadPhotocard}
