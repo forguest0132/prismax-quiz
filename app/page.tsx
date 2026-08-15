@@ -107,7 +107,11 @@ export default function PrismaXQuizApp() {
     if (!cardRef.current) return;
     setIsDownloading(true);
     try {
-      const dataUrl = await toPng(cardRef.current, { cacheBust: true, pixelRatio: 3 });
+      const dataUrl = await toPng(cardRef.current, { 
+        cacheBust: true, 
+        pixelRatio: 3,
+        quality: 1
+      });
       const link = document.createElement('a');
       link.download = `PrismaX-Validator-Pass-${userName.replace(/\s+/g, '_')}.png`;
       link.href = dataUrl;
@@ -279,8 +283,6 @@ export default function PrismaXQuizApp() {
             <h3 className="text-xl sm:text-[22px] font-semibold text-[#181613] leading-snug tracking-tight">
               {currentQ.question}
             </h3>
-            
-            {/* 🌟 চিকন/পাতলা ফন্টে ইটালিক মাল্টিপল অ্যানসার নোটিশ */}
             {isCurrentQuestionMulti && (
               <p className="text-[11px] sm:text-xs text-[#998b7a] font-light italic mt-1 tracking-wide opacity-90">
                 *(Multiple answers may apply)
@@ -363,7 +365,7 @@ export default function PrismaXQuizApp() {
         </div>
       )}
 
-      {/* 3. FINAL PHOTOCARD SCREEN */}
+      {/* 3. 🌟 FIXED PHOTOCARD (NO BLUR GLITCHES & PERFECT SPACING) */}
       {gameState === 'result' && (
         <div className="flex flex-col items-center gap-6 z-10 w-full max-w-md">
           
@@ -371,7 +373,7 @@ export default function PrismaXQuizApp() {
             ref={cardRef}
             className="w-[370px] text-[#1c1813] rounded-[34px] p-7 shadow-[0_25px_60px_rgba(110,88,58,0.3)] border-[3px] border-[#9c8466]/40 relative flex flex-col justify-between overflow-hidden"
             style={{ 
-              minHeight: '540px',
+              minHeight: '560px',
               backgroundColor: '#a89274',
               backgroundImage: `
                 radial-gradient(at 15% 15%, #c5b297 0px, transparent 65%),
@@ -396,9 +398,9 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* User Profile Avatar */}
-            <div className="my-5 flex flex-col items-center text-center relative z-10">
-              <div className="relative mb-3">
+            {/* User Profile Avatar & Badge (Proper margins so badge never overlaps) */}
+            <div className="mt-4 mb-5 flex flex-col items-center text-center relative z-10">
+              <div className="relative mb-2.5">
                 <div className="p-1 rounded-full bg-[#30271e]/15 shadow-md">
                   <img 
                     src={userAvatarSrc} 
@@ -411,21 +413,26 @@ export default function PrismaXQuizApp() {
                 </span>
               </div>
               
-              <h2 className="text-2xl font-bold font-serif text-[#1e1710] tracking-tight">
+              <h2 className="text-2xl font-bold font-serif text-[#1e1710] tracking-tight leading-snug">
                 {userName}
               </h2>
               
-              <div className="mt-1.5 inline-block px-3.5 py-0.5 rounded-full bg-[#342a1e]/15 border border-[#342a1e]/20 shadow-inner">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#292017]">
+              <div className="mt-2 inline-flex items-center justify-center px-4 py-1 rounded-full bg-[#2a2117]/20 border border-[#2a2117]/25 shadow-sm">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#1e1710]">
                   {getRankData().badge}
                 </span>
               </div>
             </div>
 
-            {/* GLOSSY GLASSMORPHISM SCORE & ASSIGNED RANK BOX */}
-            <div className="relative z-10 rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-md border border-white/60 space-y-2.5 bg-gradient-to-b from-white/70 via-white/45 to-white/20 overflow-hidden">
-              
-              <div className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
+            {/* GLOSSY GLASS SCORE & RANK BOX (Pure CSS Gloss without buggy backdrop-filter) */}
+            <div 
+              className="relative z-10 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-white/70 space-y-2.5 overflow-hidden"
+              style={{
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.30) 100%)'
+              }}
+            >
+              {/* Gloss shine reflection line */}
+              <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
 
               <div className="flex justify-between items-center text-xs relative z-10">
                 <span className="text-[#524434] uppercase font-bold text-[10px] tracking-wider font-mono">
@@ -440,7 +447,7 @@ export default function PrismaXQuizApp() {
                 <span className="text-[#524434] uppercase font-bold text-[10px] tracking-wider font-mono">
                   Assigned Rank
                 </span>
-                <span className="font-bold text-xs text-[#1e1710] font-mono tracking-wide px-2.5 py-0.5 rounded-lg bg-white/60 border border-white/80 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+                <span className="font-bold text-xs text-[#1e1710] font-mono tracking-wide px-2.5 py-0.5 rounded-lg bg-white/70 border border-white/80 shadow-sm">
                   {getRankData().rank}
                 </span>
               </div>
