@@ -33,17 +33,12 @@ export default function PrismaXQuizApp() {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // 🌟 ১৭টি ক্যাটাগরির মধ্য থেকে ৮টি ভিন্ন ক্যাটাগরি বাছাই করে প্রতিটা থেকে ঠিক ১টি প্রশ্ন সিলেক্ট করা
   const startQuiz = () => {
     if (!userName.trim()) return alert('Please enter your username!');
 
-    // ১. সব ইউনিক ক্যাটাগরি সংগ্রহ করা
     const uniqueCategories = Array.from(new Set(ALL_QUESTIONS.map(q => q.category)));
-
-    // ২. ক্যাটাগরিগুলোকে র‍্যান্ডমলি শাফেল করে যেকোনো ৮টি ক্যাটাগরি আলাদা করা
     const pickedCategories = [...uniqueCategories].sort(() => 0.5 - Math.random()).slice(0, 8);
 
-    // ৩. নির্বাচিত ৮টি ক্যাটাগরির প্রতিটা থেকে ঠিক ১টি করে প্রশ্ন বাছাই করা
     const selectedQuestions: Question[] = [];
     pickedCategories.forEach(category => {
       const categoryQuestions = ALL_QUESTIONS.filter(q => q.category === category);
@@ -51,7 +46,6 @@ export default function PrismaXQuizApp() {
       selectedQuestions.push(categoryQuestions[randomIndex]);
     });
 
-    // ৪. ফাইনাল প্রশ্নগুলো এলোমেলো করা
     const finalShuffledQuestions = [...selectedQuestions].sort(() => 0.5 - Math.random());
 
     setQuizQuestions(finalShuffledQuestions);
@@ -152,6 +146,11 @@ export default function PrismaXQuizApp() {
 
   const currentQ = quizQuestions[currentIndex];
   const isCurrentQuestionMulti = currentQ ? (currentQ.isMultiple || currentQ.correctAnswers.length > 1) : false;
+
+  // প্রশ্ন থেকে সব স্টার (*) ও ব্র্যাকেটের টেক্সট ক্লিন করার ফিল্টার
+  const cleanQuestionText = currentQ 
+    ? currentQ.question.replace(/[*★]/g, '').replace(/\s*\(Multiple answers may apply\)/gi, '').trim() 
+    : '';
 
   return (
     <main className="min-h-screen bg-[#ebe4d8] text-[#1c1b18] font-sans flex flex-col items-center justify-center p-3 sm:p-6 relative overflow-hidden selection:bg-[#cbb89d]">
@@ -293,14 +292,14 @@ export default function PrismaXQuizApp() {
             />
           </div>
 
-          {/* Question Text */}
+          {/* Question Text (✨ Cleaned without any stars (*) ✨) */}
           <div className="mb-6 relative z-10">
             <h3 className="text-xl sm:text-[22px] font-semibold text-[#181613] leading-snug tracking-tight">
-              {currentQ.question}
+              {cleanQuestionText}
             </h3>
             {isCurrentQuestionMulti && (
-              <p className="text-[11px] sm:text-xs text-[#998b7a] font-light italic mt-1 tracking-wide opacity-90">
-                *(Multiple answers may apply)
+              <p className="text-xs text-[#8a7b68] font-medium italic mt-1.5 tracking-wide">
+                (Multiple answers may apply)
               </p>
             )}
           </div>
@@ -396,7 +395,6 @@ export default function PrismaXQuizApp() {
               `
             }}
           >
-            {/* Top Bar Branding */}
             <div className="flex justify-between items-center border-b border-[#2e2317]/25 pb-4 relative z-10">
               <div>
                 <span className="font-serif text-2xl font-black tracking-tight text-[#221b14]">
@@ -412,7 +410,6 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* User Profile Avatar & Badge */}
             <div className="mt-4 mb-5 flex flex-col items-center text-center relative z-10">
               <div className="relative mb-2.5">
                 <div className="p-1 rounded-full bg-[#30271e]/15 shadow-md">
@@ -438,7 +435,6 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* Glossy Score & Rank Box */}
             <div 
               className="relative z-10 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-white/70 space-y-2.5 overflow-hidden"
               style={{
@@ -470,7 +466,6 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* Crisp Footer */}
             <div className="mt-4 pt-3.5 border-t border-[#2a2015]/30 flex flex-col items-center gap-2 relative z-10">
               <div className="w-full flex justify-between items-center text-[10.5px] text-[#1c150e] font-mono font-bold">
                 <span className="tracking-widest flex items-center gap-1.5">
@@ -485,7 +480,6 @@ export default function PrismaXQuizApp() {
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className="w-full flex items-center gap-2.5">
             <button
               onClick={downloadPhotocard}
