@@ -33,7 +33,6 @@ export default function PrismaXQuizApp() {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // 🌟 প্রতি ক্যাটাগরি থেকে ঠিক ১টি করে মোট ৮টি ভিন্নধর্মী প্রশ্ন নেওয়া হচ্ছে
   const startQuiz = () => {
     if (!userName.trim()) return alert('Please enter your username!');
 
@@ -165,7 +164,6 @@ export default function PrismaXQuizApp() {
       {gameState === 'intro' && (
         <div className="w-full max-w-md bg-[#faf6f0]/90 border border-[#e5ded4] rounded-[28px] p-6 sm:p-8 shadow-[0_20px_50px_rgba(180,165,145,0.25)] z-10 backdrop-blur-xl">
           
-          {/* Header Banner */}
           <div className="flex items-center gap-3.5 bg-[#ede6dc]/70 p-3.5 rounded-2xl border border-[#ded5c8] mb-6">
             <div className="w-13 h-13 rounded-full bg-[#e2d8c9] border border-[#d5caa] flex items-center justify-center relative shadow-sm overflow-hidden shrink-0">
               {avatar ? (
@@ -256,7 +254,6 @@ export default function PrismaXQuizApp() {
             }}
           />
 
-          {/* Top Bar Header */}
           <div className="flex items-center justify-between border-b border-[#ece5da] pb-5 mb-5 relative z-10">
             <div className="flex items-center gap-3.5">
               <div className="relative">
@@ -284,7 +281,6 @@ export default function PrismaXQuizApp() {
             </div>
           </div>
 
-          {/* Progress Bar */}
           <div className="w-full bg-[#e8e0d4] h-2 rounded-full mb-7 overflow-hidden relative z-10">
             <div 
               className="bg-[#bda17e] h-full transition-all duration-300 rounded-full shadow-[0_0_8px_rgba(189,161,126,0.6)]"
@@ -292,7 +288,6 @@ export default function PrismaXQuizApp() {
             />
           </div>
 
-          {/* Question Text */}
           <div className="mb-6 relative z-10">
             <h3 className="text-xl sm:text-[22px] font-semibold text-[#181613] leading-snug tracking-tight">
               {currentQ.question}
@@ -304,7 +299,6 @@ export default function PrismaXQuizApp() {
             )}
           </div>
 
-          {/* Option Items */}
           <div className="space-y-3 mb-7 relative z-10">
             {currentQ.options.map((option, idx) => {
               const isSelected = selectedAnswers.includes(idx);
@@ -357,7 +351,6 @@ export default function PrismaXQuizApp() {
             })}
           </div>
 
-          {/* Submit / Next Action Button */}
           <div className="relative z-10">
             {!isAnswerSubmitted ? (
               <button
@@ -379,7 +372,7 @@ export default function PrismaXQuizApp() {
         </div>
       )}
 
-      {/* 3. FINAL PHOTOCARD SCREEN */}
+      {/* 3. FINAL PHOTOCARD SCREEN (HIGH CONTRAST & CRISP FOOTER) */}
       {gameState === 'result' && (
         <div className="flex flex-col items-center gap-6 z-10 w-full max-w-md">
           
@@ -387,7 +380,7 @@ export default function PrismaXQuizApp() {
             ref={cardRef}
             className="w-[370px] text-[#1c1813] rounded-[34px] p-7 shadow-[0_25px_60px_rgba(110,88,58,0.3)] border-[3px] border-[#9c8466]/40 relative flex flex-col justify-between overflow-hidden"
             style={{ 
-              minHeight: '575px',
+              minHeight: '585px',
               backgroundColor: '#a89274',
               backgroundImage: `
                 radial-gradient(at 15% 15%, #c5b297 0px, transparent 65%),
@@ -397,12 +390,12 @@ export default function PrismaXQuizApp() {
             }}
           >
             {/* Top Bar Branding */}
-            <div className="flex justify-between items-center border-b border-[#3b3023]/15 pb-4 relative z-10">
+            <div className="flex justify-between items-center border-b border-[#2e2317]/25 pb-4 relative z-10">
               <div>
                 <span className="font-serif text-2xl font-black tracking-tight text-[#221b14]">
                   Prisma<sup className="text-sm font-sans font-normal">(x)</sup>
                 </span>
-                <p className="text-[9px] uppercase tracking-[0.22em] text-[#4d4032] font-mono font-bold">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-[#2c2217] font-mono font-bold">
                   Robotics Network
                 </p>
               </div>
@@ -431,7 +424,7 @@ export default function PrismaXQuizApp() {
                 {userName}
               </h2>
               
-              <div className="mt-2 inline-flex items-center justify-center px-4 py-1 rounded-full bg-[#2a2117]/20 border border-[#2a2117]/25 shadow-sm">
+              <div className="mt-2 inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#2a2117]/25 border border-[#2a2117]/35 shadow-sm">
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#1e1710]">
                   {getRankData().badge}
                 </span>
@@ -442,13 +435,13 @@ export default function PrismaXQuizApp() {
             <div 
               className="relative z-10 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-white/70 space-y-2.5 overflow-hidden"
               style={{
-                background: 'linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.30) 100%)'
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.50) 50%, rgba(255,255,255,0.32) 100%)'
               }}
             >
               <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
 
               <div className="flex justify-between items-center text-xs relative z-10">
-                <span className="text-[#524434] uppercase font-bold text-[10px] tracking-wider font-mono">
+                <span className="text-[#3d2f20] uppercase font-bold text-[10.5px] tracking-wider font-mono">
                   Validation Accuracy
                 </span>
                 <span className="font-mono font-black text-sm text-[#18130e] tracking-tight">
@@ -457,30 +450,30 @@ export default function PrismaXQuizApp() {
               </div>
 
               <div className="flex justify-between items-center text-xs relative z-10">
-                <span className="text-[#524434] uppercase font-bold text-[10px] tracking-wider font-mono">
+                <span className="text-[#3d2f20] uppercase font-bold text-[10.5px] tracking-wider font-mono">
                   Assigned Rank
                 </span>
-                <span className="font-bold text-xs text-[#1e1710] font-mono tracking-wide px-2.5 py-0.5 rounded-lg bg-white/70 border border-white/80 shadow-sm">
+                <span className="font-bold text-xs text-[#1e1710] font-mono tracking-wide px-2.5 py-0.5 rounded-lg bg-white/75 border border-white/80 shadow-sm">
                   {getRankData().rank}
                 </span>
               </div>
 
-              <div className="text-[11px] text-center italic text-[#574b3d] pt-2 border-t border-[#382d20]/15 font-sans relative z-10">
+              <div className="text-[11px] text-center italic text-[#3d3226] font-semibold pt-2 border-t border-[#382d20]/20 font-sans relative z-10">
                 "{getRankData().note}"
               </div>
             </div>
 
-            {/* Card Footer with "Built by Boysun" */}
-            <div className="mt-4 pt-3 border-t border-[#3b3023]/15 flex flex-col items-center gap-1.5 relative z-10">
-              <div className="w-full flex justify-between items-center text-[9px] text-[#4d4032] font-mono">
-                <span className="tracking-widest flex items-center gap-1 font-semibold">
-                  <Award className="w-3 h-3 text-[#382d20]" /> PHYSICAL AI VALIDATOR
+            {/* 🌟 100% CLEAR, BOLD & CRISP FOOTER 🌟 */}
+            <div className="mt-4 pt-3.5 border-t border-[#2a2015]/30 flex flex-col items-center gap-2 relative z-10">
+              <div className="w-full flex justify-between items-center text-[10.5px] text-[#1c150e] font-mono font-bold">
+                <span className="tracking-widest flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5 text-[#1c150e] stroke-[2.5]" /> PHYSICAL AI VALIDATOR
                 </span>
-                <span className="font-semibold">app.prismax.ai</span>
+                <span className="tracking-wide">app.prismax.ai</span>
               </div>
 
-              {/* ✨ STYLISH SLIM ITALIC AUTHOR CREDIT ✨ */}
-              <div className="text-[10px] font-serif italic text-[#3a2e20]/80 tracking-wide pt-0.5">
+              {/* ✨ CRISP & STYLISH "Built by Boysun" ✨ */}
+              <div className="text-[11px] font-serif italic font-semibold text-[#1f170f] tracking-wide">
                 Built by Boysun
               </div>
             </div>
