@@ -387,7 +387,7 @@ export default function PrismaXQuizApp() {
             ref={cardRef}
             className="w-[370px] text-[#1c1813] rounded-[34px] p-7 shadow-[0_25px_60px_rgba(110,88,58,0.3)] border-[3px] border-[#9c8466]/40 relative flex flex-col justify-between overflow-hidden"
             style={{ 
-              minHeight: '560px',
+              minHeight: '575px',
               backgroundColor: '#a89274',
               backgroundImage: `
                 radial-gradient(at 15% 15%, #c5b297 0px, transparent 65%),
@@ -470,12 +470,19 @@ export default function PrismaXQuizApp() {
               </div>
             </div>
 
-            {/* Card Footer */}
-            <div className="mt-4 pt-3 border-t border-[#3b3023]/15 flex justify-between items-center text-[9px] text-[#4d4032] font-mono relative z-10">
-              <span className="tracking-widest flex items-center gap-1 font-semibold">
-                <Award className="w-3 h-3 text-[#382d20]" /> PHYSICAL AI VALIDATOR
-              </span>
-              <span className="font-semibold">app.prismax.ai</span>
+            {/* Card Footer with "Built by Boysun" */}
+            <div className="mt-4 pt-3 border-t border-[#3b3023]/15 flex flex-col items-center gap-1.5 relative z-10">
+              <div className="w-full flex justify-between items-center text-[9px] text-[#4d4032] font-mono">
+                <span className="tracking-widest flex items-center gap-1 font-semibold">
+                  <Award className="w-3 h-3 text-[#382d20]" /> PHYSICAL AI VALIDATOR
+                </span>
+                <span className="font-semibold">app.prismax.ai</span>
+              </div>
+
+              {/* ✨ STYLISH SLIM ITALIC AUTHOR CREDIT ✨ */}
+              <div className="text-[10px] font-serif italic text-[#3a2e20]/80 tracking-wide pt-0.5">
+                Built by Boysun
+              </div>
             </div>
           </div>
 
