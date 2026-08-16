@@ -125,7 +125,7 @@ export default function PrismaXQuizApp() {
         quality: 1
       });
       const link = document.createElement('a');
-      link.download = `PrismaX-Validator-Pass-${userName.replace(/\s+/g, '_')}.png`;
+      link.download = `Prisma-Tango-Pass-${userName.replace(/\s+/g, '_')}.png`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
@@ -137,7 +137,7 @@ export default function PrismaXQuizApp() {
 
   const shareOnX = () => {
     const text = encodeURIComponent(
-      `⚡ Just completed the @PrismaX_AI Validator Knowledge Gateway!\n\n🎖️ Accuracy: ${score}/8 (${Math.round((score / 8) * 100)}%)\n🛡️ Role: ${getRankData().rank}\n\nProve your Physical AI validation skills! 👇`
+      `⚡ Just completed the @PrismaX_AI Tango Arena!\n\n🎖️ Accuracy: ${score}/8 (${Math.round((score / 8) * 100)}%)\n🛡️ Role: ${getRankData().rank}\n\nJoin the Prisma Tango Arena! 👇`
     );
     window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
   };
@@ -147,7 +147,6 @@ export default function PrismaXQuizApp() {
   const currentQ = quizQuestions[currentIndex];
   const isCurrentQuestionMulti = currentQ ? (currentQ.isMultiple || currentQ.correctAnswers.length > 1) : false;
 
-  // প্রশ্ন থেকে সব স্টার (*) ও ব্র্যাকেটের টেক্সট ক্লিন করার ফিল্টার
   const cleanQuestionText = currentQ 
     ? currentQ.question.replace(/[*★]/g, '').replace(/\s*\(Multiple answers may apply\)/gi, '').trim() 
     : '';
@@ -185,7 +184,7 @@ export default function PrismaXQuizApp() {
             </div>
             <div>
               <h3 className="text-base font-bold text-[#1c1b18] tracking-tight">
-                PrismaX Trivia Knowledge
+                Prisma Tango Arena
               </h3>
               <p className="text-[11px] text-[#786f63] font-mono italic">
                 {userName ? `@${userName}` : 'Test Today, Validate Tomorrow'}
@@ -197,7 +196,7 @@ export default function PrismaXQuizApp() {
             Participant Verification
           </h2>
           <p className="text-xs text-[#786f63] mb-6 leading-relaxed">
-            Complete the 8-question about prismax to test your knowledge.
+            Enter the arena and complete the 8-question challenge.
           </p>
 
           <div className="space-y-4">
@@ -241,7 +240,7 @@ export default function PrismaXQuizApp() {
               onClick={startQuiz}
               className="w-full mt-4 bg-[#c8b398] hover:bg-[#bd9f7e] text-[#1c1b18] font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all shadow-md active:scale-98 cursor-pointer"
             >
-              Start Validation Quiz <ArrowRight className="w-4 h-4" />
+              Enter Tango Arena <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -271,7 +270,7 @@ export default function PrismaXQuizApp() {
               
               <div>
                 <h4 className="text-base font-bold tracking-tight text-[#1c1b18] flex items-center gap-1">
-                  Prisma<sup>(x)</sup> Quiz
+                  Prisma Tango Arena
                 </h4>
                 <div className="text-xs font-mono tracking-wider text-[#736a5e] truncate max-w-[170px] sm:max-w-none">
                   @{userName}
@@ -292,7 +291,6 @@ export default function PrismaXQuizApp() {
             />
           </div>
 
-          {/* Question Text (✨ Cleaned without any stars (*) ✨) */}
           <div className="mb-6 relative z-10">
             <h3 className="text-xl sm:text-[22px] font-semibold text-[#181613] leading-snug tracking-tight">
               {cleanQuestionText}
@@ -304,7 +302,6 @@ export default function PrismaXQuizApp() {
             )}
           </div>
 
-          {/* Options */}
           <div className="space-y-3 mb-7 relative z-10">
             {currentQ.options.map((option, idx) => {
               const isSelected = selectedAnswers.includes(idx);
