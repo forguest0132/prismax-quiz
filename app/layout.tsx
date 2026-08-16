@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prisma Tango Arena",
+  title: "PrismaX Tango Arena",
   description: "Master the Physical AI consensus challenges and claim your Validator Pass.",
 };
 

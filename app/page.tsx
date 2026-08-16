@@ -125,7 +125,7 @@ export default function PrismaXQuizApp() {
         quality: 1
       });
       const link = document.createElement('a');
-      link.download = `Prisma-Tango-Pass-${userName.replace(/\s+/g, '_')}.png`;
+      link.download = `PrismaX-Tango-Arena-${userName.replace(/\s+/g, '_')}.png`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
@@ -137,7 +137,7 @@ export default function PrismaXQuizApp() {
 
   const shareOnX = () => {
     const text = encodeURIComponent(
-      `⚡ Just completed the @PrismaX_AI Tango Arena!\n\n🎖️ Accuracy: ${score}/8 (${Math.round((score / 8) * 100)}%)\n🛡️ Role: ${getRankData().rank}\n\nJoin the Prisma Tango Arena! 👇`
+      `⚡ Just conquered the @PrismaX_AI Tango Arena!\n\n🎖️ Accuracy: ${score}/8 (${Math.round((score / 8) * 100)}%)\n🛡️ Role: ${getRankData().rank}\n\nEnter the PrismaX Tango Arena! 👇`
     );
     window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
   };
@@ -154,7 +154,7 @@ export default function PrismaXQuizApp() {
   return (
     <main className="min-h-screen bg-[#ebe4d8] text-[#1c1b18] font-sans flex flex-col items-center justify-center p-3 sm:p-6 relative overflow-hidden selection:bg-[#cbb89d]">
       
-      {/* 🤖 GLOBAL BACKGROUND */}
+      {/* GLOBAL BACKGROUND */}
       <div 
         className="fixed inset-0 bg-cover bg-right sm:bg-center pointer-events-none opacity-45 filter sepia-[0.35] contrast-[1.05] z-0"
         style={{ 
@@ -163,7 +163,7 @@ export default function PrismaXQuizApp() {
       />
       <div className="fixed inset-0 bg-gradient-to-tr from-[#f1ebe1]/90 via-[#f4eee6]/80 to-[#eae0d2]/75 pointer-events-none z-0" />
 
-      {/* 1. INTRO / REGISTRATION SCREEN */}
+      {/* 1. INTRO SCREEN */}
       {gameState === 'intro' && (
         <div className="w-full max-w-md bg-[#faf6f0]/90 border border-[#e5ded4] rounded-[28px] p-6 sm:p-8 shadow-[0_20px_50px_rgba(180,165,145,0.25)] z-10 backdrop-blur-xl">
           
@@ -184,7 +184,7 @@ export default function PrismaXQuizApp() {
             </div>
             <div>
               <h3 className="text-base font-bold text-[#1c1b18] tracking-tight">
-                Prisma Tango Arena
+                PrismaX Tango Arena
               </h3>
               <p className="text-[11px] text-[#786f63] font-mono italic">
                 {userName ? `@${userName}` : 'Test Today, Validate Tomorrow'}
@@ -196,7 +196,7 @@ export default function PrismaXQuizApp() {
             Participant Verification
           </h2>
           <p className="text-xs text-[#786f63] mb-6 leading-relaxed">
-            Enter the arena and complete the 8-question challenge.
+            Enter the PrismaX Tango Arena and complete the 8-question challenge.
           </p>
 
           <div className="space-y-4">
@@ -270,7 +270,7 @@ export default function PrismaXQuizApp() {
               
               <div>
                 <h4 className="text-base font-bold tracking-tight text-[#1c1b18] flex items-center gap-1">
-                  Prisma Tango Arena
+                  PrismaX Tango Arena
                 </h4>
                 <div className="text-xs font-mono tracking-wider text-[#736a5e] truncate max-w-[170px] sm:max-w-none">
                   @{userName}
@@ -291,6 +291,7 @@ export default function PrismaXQuizApp() {
             />
           </div>
 
+          {/* Question Text */}
           <div className="mb-6 relative z-10">
             <h3 className="text-xl sm:text-[22px] font-semibold text-[#181613] leading-snug tracking-tight">
               {cleanQuestionText}
@@ -302,6 +303,7 @@ export default function PrismaXQuizApp() {
             )}
           </div>
 
+          {/* Options */}
           <div className="space-y-3 mb-7 relative z-10">
             {currentQ.options.map((option, idx) => {
               const isSelected = selectedAnswers.includes(idx);
